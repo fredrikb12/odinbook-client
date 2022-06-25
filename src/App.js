@@ -3,6 +3,7 @@ import { useNavigate, Link, Outlet } from "react-router-dom";
 import Logout from "./components/Logout";
 import authAPI from "./authHelpers";
 import useAuth from "./useAuth";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [hasAttemptedLogin, setHasAttemptedLogin] = useState(false);
@@ -32,7 +33,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <Logout />
+        <Navbar />
         <Outlet />
       </div>
     );
