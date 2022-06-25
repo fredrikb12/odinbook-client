@@ -13,6 +13,7 @@ function Navbar() {
           gap: "120px",
           padding: "15px",
           fontSize: "1.5rem",
+          borderBottom: "1px solid black",
         }}
       >
         <Link to="/">Home</Link>

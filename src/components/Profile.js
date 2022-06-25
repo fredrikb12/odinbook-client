@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Posts from "./Posts";
+import ProfileImage from "./ProfileImage";
 
 function Profile() {
   const { profileId } = useParams();
@@ -29,7 +30,19 @@ function Profile() {
 
   if (loading) return <p>Loading profile...</p>;
   else {
-    return <Posts posts={profile.posts || []} />;
+    return (
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", gap: "20px" }}>
+          <ProfileImage
+            src={profile.picture}
+            alt={profile.name}
+          />
+          <p>{profile?.name}</p>
+          <p>Friends: {profile.friends.length}</p>
+        </div>
+        <Posts posts={profile.posts || []} />
+      </div>
+    );
   }
 }
 
