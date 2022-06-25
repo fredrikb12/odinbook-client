@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Posts from "./Posts";
 
 function IndexPosts() {
   const [posts, setPosts] = useState([]);
@@ -30,22 +31,7 @@ function IndexPosts() {
     }
     fetchPosts();
   }, []);
-  return posts.map((post) => {
-    return (
-      <div
-        key={post._id}
-        style={{
-          border: "1px solid black",
-          marginTop: "20px",
-          marginBottom: "20px",
-          padding: "10px",
-        }}
-      >
-        <p>{post.user.name}</p>
-        <p>{post.text}</p>
-      </div>
-    );
-  });
+  return <Posts posts={posts} />;
 }
 
 export default IndexPosts;
