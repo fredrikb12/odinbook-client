@@ -12,6 +12,7 @@ function RouteSwitch() {
   const theme = {
     main: "#18191A",
     postBg: "#242526",
+    primaryText: "#E4E6EB",
   };
   return (
     <BrowserRouter>
