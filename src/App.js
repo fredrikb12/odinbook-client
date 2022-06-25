@@ -16,8 +16,7 @@ function App() {
 
       setHasAttemptedLogin(() => true);
 
-      if (user) nav("/");
-      else nav("/login");
+      if (!user) nav("/login");
     }
 
     attemptLogin();
