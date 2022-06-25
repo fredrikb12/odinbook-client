@@ -1,31 +1,18 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { tryLogin } from "../authHelpers";
+import useAuth from "../useAuth";
 
-function LoginRedirect({ setUser }) {
+function LoginRedirect({}) {
+  const { login, loading, error } = useAuth();
   const nav = useNavigate();
+  
   useEffect(() => {
-    async function tryFetchLogin() {
-      try {
-        const data = await fetch("http://localhost:3000/auth/success", {
-          credentials: "include",
-          method: "GET",
-          mode: "cors",
-        });
-        if (data.status === 200) {
-          const userData = await data.json();
-          if (userData.statusCode === 200) {
-            setUser(userData.userId);
-            nav("/");
-          }
-        }
-      } catch (e) {
-        console.log(e);
-        nav("http://localhost:3001/login");
-      }
-    }
-    tryFetchLogin();
-  }, [setUser, nav]);
-  return <p>Logging in...</p>;
+    login();
+  }, [nav, login, error]);
+
+  if (loading) return <p>Logging in...</p>;
+  else nav("/login");
 }
 
 export default LoginRedirect;

@@ -1,28 +1,42 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import App from "../App";
+import useAuth, { AuthProvider } from "../useAuth";
 import Homepage from "./Homepage";
 import Login from "./Login";
 import LoginRedirect from "./LoginRedirect";
 
 function RouteSwitch() {
-  const [user, setUser] = useState(null);
-
   return (
     <BrowserRouter>
-      <>{user && <>User id: {user}</>}</>
-      <Routes>
-        <Route path="/" element={<App user={user} setUser={setUser} />}>
-          <Route index element={<Homepage />} />
-          <Route path="/login" element={<Login user={user} />} />
-          <Route
-            path="/login-redirect"
-            element={<LoginRedirect setUser={setUser} />}
-          />
-        </Route>
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route
+              index
+              element={
+                <AuthRoute>
+                  <Homepage />
+                </AuthRoute>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/login-redirect" element={<LoginRedirect />} />
+          </Route>
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
+}
+
+function AuthRoute({ children }) {
+  const { user } = useAuth();
+  if (!user) return <Navigate to="/login" />;
+  else return children;
 }
 
 export default RouteSwitch;

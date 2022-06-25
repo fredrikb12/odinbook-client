@@ -1,17 +1,15 @@
-function Logout({ setUser }) {
-  async function logOut() {
-    try {
-      await fetch("http://localhost:3000/auth/logout", {
-        credentials: "include",
-        method: "GET",
-        mode: "cors",
-      });
-    } catch (e) {
-      console.log(e);
-    }
-    setUser(() => null);
+import { useNavigate } from "react-router-dom";
+import useAuth from "../useAuth";
+
+function Logout({}) {
+  const nav = useNavigate();
+  const { logOut } = useAuth();
+  async function handleClick() {
+    await logOut();
+    nav("/login");
   }
-  return <button onClick={logOut}>Sign Out</button>;
+
+  return <button onClick={handleClick}>Sign Out</button>;
 }
 
 export default Logout;
