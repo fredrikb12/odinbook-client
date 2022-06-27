@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../useAuth";
-import FriendStatusButton from "./FriendStatusButton";
+import FriendStatusButton from "./FriendStatusButton/FriendStatusButton";
 import ProfileImage from "./ProfileImage";
 
 function Users() {
@@ -46,19 +46,6 @@ function Users() {
           <p>{user.name}</p>
         </Link>
         <FriendStatusButton currentUser={currentUser} user={user} />
-        {/*{user.requests.find(
-          (req) =>
-            req.sender === currentUser &&
-            user._id !== currentUser &&
-            !req.accepted
-        ) && <button>Cancel Friend Request</button>}
-        {user.requests.find(
-          (req) =>
-            req.receiver === currentUser &&
-            req.sender === user._id &&
-            !req.accepted
-        ) && <button>Accept Friend Request</button>}
-        {user.friends.includes(currentUser) && <button>Remove Friend</button>}*/}
       </div>
     );
   });
