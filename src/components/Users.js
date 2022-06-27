@@ -6,6 +6,7 @@ import ProfileImage from "./ProfileImage";
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [needsUpdate, setNeedsUpdate] = useState(true);
 
   const currentUser = useAuth().user;
 
@@ -26,9 +27,11 @@ function Users() {
         console.log(e);
       }
     }
-
-    getUsers();
-  }, [setUsers]);
+    if (needsUpdate) {
+      getUsers();
+      setNeedsUpdate(false);
+    }
+  }, [setUsers, needsUpdate]);
 
   return users.map((user) => {
     return (
@@ -45,7 +48,11 @@ function Users() {
         <Link style={{ color: "white" }} to={`/users/${user._id}`}>
           <p>{user.name}</p>
         </Link>
-        <FriendStatusButton currentUser={currentUser} user={user} />
+        <FriendStatusButton
+          setNeedsUpdate={setNeedsUpdate}
+          currentUser={currentUser}
+          user={user}
+        />
       </div>
     );
   });

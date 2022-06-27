@@ -1,6 +1,7 @@
-function AcceptButton({ currentUser, user }) {
+function AcceptButton({ currentUser, user, setNeedsUpdate }) {
   async function handleAccept() {
     console.log("accepting...");
+    setNeedsUpdate(true);
   }
   return <button onClick={handleAccept}>Accept</button>;
 }
