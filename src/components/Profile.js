@@ -4,13 +4,13 @@ import Posts from "./Posts";
 import ProfileImage from "./ProfileImage";
 
 function Profile() {
-  const { profileId } = useParams();
+  const { userId } = useParams();
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchProfile() {
       try {
-        const data = await fetch(`http://localhost:3000/users/${profileId}`, {
+        const data = await fetch(`http://localhost:3000/users/${userId}`, {
           credentials: "include",
           method: "GET",
           mode: "cors",
@@ -26,7 +26,7 @@ function Profile() {
     }
 
     fetchProfile();
-  }, [profileId]);
+  }, [userId]);
 
   if (loading) return <p>Loading profile...</p>;
   else {

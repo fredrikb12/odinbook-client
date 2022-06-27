@@ -7,6 +7,7 @@ import Login from "./Login";
 import LoginRedirect from "./LoginRedirect";
 import Profile from "./Profile";
 import { GlobalStyle } from "./styled/GlobalStyle";
+import Users from "./Users";
 
 function RouteSwitch() {
   const theme = {
@@ -32,10 +33,18 @@ function RouteSwitch() {
               <Route path="/login" element={<Login />} />
               <Route path="/login-redirect" element={<LoginRedirect />} />
               <Route
-                path="/profile/:profileId"
+                path="/users/:userId"
                 element={
                   <AuthRoute>
                     <Profile />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/users"
+                element={
+                  <AuthRoute>
+                    <Users />
                   </AuthRoute>
                 }
               />

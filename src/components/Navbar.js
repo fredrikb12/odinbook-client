@@ -17,7 +17,8 @@ function Navbar() {
         }}
       >
         <Link to="/">Home</Link>
-        <Link to={`/profile/${user}`}>Profile</Link>
+        <Link to="/users">Users</Link>
+        <Link to={`/users/${user}`}>Profile</Link>
         <Logout />
       </nav>
     </header>
