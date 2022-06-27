@@ -28,7 +28,7 @@ const friendActions = {
       `http://localhost:3000/friendrequests/${requestId}`,
       {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
         credentials: "include",
         method: "PUT",
@@ -66,6 +66,23 @@ const friendActions = {
       mode: "cors",
       body: body,
     });
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+  },
+  removeFriend: async (userId) => {
+    const response = await fetch(
+      `http://localhost:3000/users/${userId}/remove`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        method: "PUT",
+        mode: "cors",
+        body: JSON.stringify({ userId: userId }),
+      }
+    );
     console.log(response);
     const data = await response.json();
     console.log(data);

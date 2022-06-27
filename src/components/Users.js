@@ -20,7 +20,6 @@ function Users() {
         });
         if (response.status === 200) {
           const data = await response.json();
-          console.log(data);
           setUsers(data.users);
         }
       } catch (e) {
