@@ -28,7 +28,7 @@ const friendActions = {
       `http://localhost:3000/friendrequests/${requestId}`,
       {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
         credentials: "include",
         method: "PUT",
