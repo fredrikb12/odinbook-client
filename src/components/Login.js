@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../useAuth";
+import LoginForm from "./LoginForm";
 
 function Login() {
   const { login, user } = useAuth();
@@ -54,56 +55,22 @@ function Login() {
   }
 
   return (
-    <div>
-      <a href="http://localhost:3000/login/facebook">
-        <button>Sign in with Facebook</button>
-      </a>
-      <form
-        style={{ color: "white", display: "flex", flexDirection: "column" }}
-      >
-        <label>
-          Name:
-          <input
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            name="name"
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            value={formData.username}
-            onChange={handleChange}
-            name="username"
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={formData.password}
-            onChange={handleChange}
-            name="password"
-          />
-        </label>
-        <label>
-          Confirm password:
-          <input
-            type="password"
-            value={formData.password_confirm}
-            onChange={handleChange}
-            name="password_confirm"
-          />
-        </label>
-        <button onClick={handleSubmit} style={{ maxWidth: "150px" }}>
-          Sign In
-        </button>
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <a href="http://localhost:3000/login/facebook">
+          <button>Sign in with Facebook</button>
+        </a>
         <button onClick={handleGuestLogin} style={{ maxWidth: "150px" }}>
           Sign in as Guest
         </button>
-      </form>
+      </div>
+      <p style={{ color: "white", margin: "50px" }}>OR</p>
+      <LoginForm
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        handleGuestLogin={handleGuestLogin}
+        formData={formData}
+      />
     </div>
   );
 }
