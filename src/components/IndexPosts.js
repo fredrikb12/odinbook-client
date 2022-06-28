@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Posts from "./Posts";
 
-function IndexPosts() {
+function IndexPosts({needsUpdate, setNeedsUpdate}) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     async function fetchPosts() {
@@ -29,9 +29,12 @@ function IndexPosts() {
         console.log(e);
       }
     }
-    fetchPosts();
-  }, []);
-  return <Posts posts={posts} />;
+    if (needsUpdate) {
+      fetchPosts();
+      setNeedsUpdate(false);
+    }
+  }, [needsUpdate, setNeedsUpdate]);
+  return <Posts setNeedsUpdate={setNeedsUpdate} posts={posts} />;
 }
 
 export default IndexPosts;

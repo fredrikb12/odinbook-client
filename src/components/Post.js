@@ -3,11 +3,12 @@ import { postManager } from "../utils/postManager";
 import ProfileImage from "./ProfileImage";
 import { StyledPost } from "./styled/Post.styled";
 
-function Post({ post }) {
+function Post({ post, setNeedsUpdate }) {
   const { user } = useAuth();
 
   async function handleClick() {
     await postManager.removePost(post._id);
+    setNeedsUpdate(true);
   }
 
   return (

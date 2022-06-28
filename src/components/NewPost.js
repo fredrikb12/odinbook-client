@@ -3,8 +3,7 @@ import useAuth from "../useAuth";
 import { postManager } from "../utils/postManager";
 import { StyledNewPost } from "./styled/NewPost.styled";
 
-function NewPost() {
-  const { user } = useAuth();
+function NewPost({ setNeedsUpdate }) {
   const [text, setText] = useState("");
 
   function handleChange(e) {
@@ -14,6 +13,8 @@ function NewPost() {
   async function handleClick(e) {
     e.preventDefault();
     await postManager.submitPost(text);
+    setText("");
+    setNeedsUpdate(true);
   }
 
   return (

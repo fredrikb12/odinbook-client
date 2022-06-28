@@ -1,8 +1,8 @@
 import Post from "./Post";
 
-function Posts({ posts }) {
+function Posts({ posts, setNeedsUpdate }) {
   return posts.map((post) => {
-    return <Post key={post._id} post={post} />;
+    return <Post setNeedsUpdate={setNeedsUpdate} key={post._id} post={post} />;
   });
 }
 export default Posts;
