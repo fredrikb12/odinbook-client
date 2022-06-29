@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import FriendStatusButton from "./FriendStatusButton/FriendStatusButton";
 import ProfileImage from "./ProfileImage";
+import { NoUnderlineLink } from "./styled/Links.styled";
 import { StyledUserFeed } from "./styled/UserFeed.styled";
 
 function UserFeed({ users, setNeedsUpdate, currentUser }) {
@@ -8,13 +9,14 @@ function UserFeed({ users, setNeedsUpdate, currentUser }) {
     <StyledUserFeed>
       {users.map((user) => {
         return (
-          <div
-            key={user._id}
-          >
+          <div key={user._id}>
             <ProfileImage src={user.picture} alt={user.name} />
-            <Link style={{ color: "white" }} to={`/users/${user._id}`}>
+            <NoUnderlineLink
+              style={{ color: "white" }}
+              to={`/users/${user._id}`}
+            >
               <p>{user.name}</p>
-            </Link>
+            </NoUnderlineLink>
             <FriendStatusButton
               setNeedsUpdate={setNeedsUpdate}
               currentUser={currentUser}
