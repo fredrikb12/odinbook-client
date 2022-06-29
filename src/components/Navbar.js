@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useAuth from "../useAuth";
 import Logout from "./Logout";
+import { NoUnderlineLink } from "./styled/Links.styled";
 
 function Navbar() {
   const { user } = useAuth();
@@ -16,9 +17,9 @@ function Navbar() {
           borderBottom: "1px solid black",
         }}
       >
-        <Link to="/">Home</Link>
-        <Link to="/users">Users</Link>
-        <Link to={`/users/${user}`}>Profile</Link>
+        <NoUnderlineLink to="/">Home</NoUnderlineLink>
+        <NoUnderlineLink to="/users">Users</NoUnderlineLink>
+        <NoUnderlineLink to={`/users/${user}`}>Profile</NoUnderlineLink>
         <Logout />
       </nav>
     </header>
