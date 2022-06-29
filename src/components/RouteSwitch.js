@@ -6,6 +6,7 @@ import Homepage from "./Homepage";
 import Login from "./Login";
 import LoginRedirect from "./LoginRedirect";
 import Profile from "./Profile";
+import Register from "./Register";
 import { GlobalStyle } from "./styled/GlobalStyle";
 import Users from "./Users";
 
@@ -32,6 +33,7 @@ function RouteSwitch() {
                 }
               />
               <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/login-redirect" element={<LoginRedirect />} />
               <Route
                 path="/users/:userId"
