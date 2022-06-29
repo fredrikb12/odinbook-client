@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
-import { StyledLoginButtons } from "./styled/StyledLoginButtons";
+import { StyledLoginButton } from "./styled/LoginButton.styled";
+import { StyledLoginButtons } from "./styled/LoginButtons.styled";
 
 function LoginButtons({ handleGuestLogin }) {
   return (
     <StyledLoginButtons>
       <Link to="/register">
-        <button>Create Account</button>
+        <StyledLoginButton>Create Account</StyledLoginButton>
       </Link>
       <a style={{}} href="http://localhost:3000/login/facebook">
-        <button>Sign in with Facebook</button>
+        <StyledLoginButton>Sign in with Facebook</StyledLoginButton>
       </a>
-      <button onClick={handleGuestLogin}>Sign in as Guest</button>
+      <StyledLoginButton onClick={handleGuestLogin}>Sign in as Guest</StyledLoginButton>
     </StyledLoginButtons>
   );
 }

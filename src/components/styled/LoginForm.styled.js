@@ -4,28 +4,32 @@ export const StyledLoginForm = styled.form`
   color: ${({ theme }) => theme.primaryText};
   display: grid;
   grid-template-columns: 1fr;
-  padding: 50px;
-  gap: 20px;
-  font-size: 1.2rem;
+  gap: 8px;
+  font-size: 1.5rem;
   border-left: 5px solid white;
   border-right: 5px solid white;
   border-radius: ${({ theme }) => theme.loginBorderRadius};
   background-color: ${({ theme }) => theme.postBg};
+  width: clamp(250px, 60vw, 400px);
+  padding: 20px;
+
+  & button {
+    width: 100%;
+  }
+
+  & input {
+    margin-bottom: 20px;
+  }
 
   @media (min-width: 768px) {
-    padding: 100px;
-    font-size: 1.5rem;
-
-    input {
-      padding: 8px 16px;
-      font-size: 1.2rem;
-    }
+    padding: 40px;
   }
 
   @media (min-width: 1024px) {
-    padding: 150px;
+    padding: 60px;
   }
 
   @media (min-width: 1400px) {
+    width: clamp(400px, 60vw, 520px);
   }
 `;

@@ -1,3 +1,4 @@
+import { StyledLoginButton } from "./styled/LoginButton.styled";
 import { StyledLoginForm } from "./styled/LoginForm.styled";
 import TextInput from "./TextInput";
 
@@ -24,9 +25,9 @@ function LoginForm({
         onChange={handleChange}
         name="password"
       />
-      <button onClick={handleSubmit} style={{ maxWidth: "150px" }}>
+      <StyledLoginButton onClick={handleSubmit} style={{ maxWidth: "150px" }}>
         Sign In
-      </button>
+      </StyledLoginButton>
     </StyledLoginForm>
   );
 }
