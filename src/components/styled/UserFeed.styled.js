@@ -3,10 +3,12 @@ import { StyledPostFeed } from "./PostFeed.styled";
 
 export const StyledUserFeed = styled(StyledPostFeed)`
   background-color: ${({ theme }) => theme.postBg};
-  padding: 20px;
+  padding: 40px 20px;
   margin-top: 0;
   min-height: 90vh;
   font-size: 1.1rem;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 
   & > div {
     display: flex;
@@ -20,6 +22,7 @@ export const StyledUserFeed = styled(StyledPostFeed)`
 
   @media (min-width: 1024px) {
     display: grid;
+    width: clamp(700px, 70vw, 1000px);
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 200px;
     gap: 20px;
