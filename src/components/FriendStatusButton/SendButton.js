@@ -1,4 +1,5 @@
 import { friendActions } from "../../utils/friendStatus";
+import Button from "../Button";
 
 function SendButton({ currentUser, user, setNeedsUpdate }) {
   async function handleSend() {
@@ -6,9 +7,8 @@ function SendButton({ currentUser, user, setNeedsUpdate }) {
     console.log("user:", user);
     const res = await friendActions.sendRequest(user._id);
     setNeedsUpdate(true);
-
   }
-  return <button onClick={handleSend}>Send</button>;
+  return <Button onClick={handleSend}>Send</Button>;
 }
 
 export default SendButton;

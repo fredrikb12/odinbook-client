@@ -1,4 +1,5 @@
 import { friendActions } from "../../utils/friendStatus";
+import Button from "../Button";
 
 function RemoveButton({ currentUser, user, setNeedsUpdate }) {
   async function handleRemove() {
@@ -6,7 +7,7 @@ function RemoveButton({ currentUser, user, setNeedsUpdate }) {
     const res = await friendActions.removeFriend(user._id);
     setNeedsUpdate(true);
   }
-  return <button onClick={handleRemove}>Remove</button>;
+  return <Button onClick={handleRemove}>Remove</Button>;
 }
 
 export default RemoveButton;

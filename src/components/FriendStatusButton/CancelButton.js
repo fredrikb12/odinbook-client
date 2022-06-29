@@ -1,4 +1,5 @@
 import { friendActions } from "../../utils/friendStatus";
+import Button from "../Button";
 
 function CancelButton({ req, currentUser, user, setNeedsUpdate }) {
   async function handleCancel() {
@@ -6,7 +7,7 @@ function CancelButton({ req, currentUser, user, setNeedsUpdate }) {
     const res = await friendActions.cancelRequest(req._id);
     setNeedsUpdate(true);
   }
-  return <button onClick={handleCancel}>Cancel</button>;
+  return <Button onClick={handleCancel}>Cancel</Button>;
 }
 
 export default CancelButton;
