@@ -11,7 +11,7 @@ export const StyledLoginForm = styled.form`
   border-radius: ${({ theme }) => theme.loginBorderRadius};
   background-color: ${({ theme }) => theme.postBg};
   width: clamp(250px, 60vw, 400px);
-  padding: 20px;
+  padding: 30px 20px;
 
   & button {
     width: 100%;
