@@ -31,7 +31,6 @@ function Post({ post, setNeedsUpdate }) {
       <p>{post.text}</p>
       {post.user._id === user && (
         <StyledDeleteButton
-          style={{ position: "absolute", top: 10, right: 10 }}
           onClick={handleClick}
         >
           Delete

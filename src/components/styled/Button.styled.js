@@ -14,8 +14,16 @@ export const StyledButton = styled.button`
 
 export const StyledDeleteButton = styled(StyledButton)`
   background-color: #ff486b;
+  margin-top: 20px;
 
   &:hover {
     background-color: #c90f34;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
 `;
