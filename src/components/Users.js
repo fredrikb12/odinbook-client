@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../useAuth";
 import FriendStatusButton from "./FriendStatusButton/FriendStatusButton";
 import ProfileImage from "./ProfileImage";
+import UserFeed from "./UserFeed";
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -32,29 +33,13 @@ function Users() {
     }
   }, [setUsers, needsUpdate]);
 
-  return users.map((user) => {
-    return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "20px",
-          marginBottom: "30px",
-        }}
-        key={user._id}
-      >
-        <ProfileImage src={user.picture} alt={user.name} />
-        <Link style={{ color: "white" }} to={`/users/${user._id}`}>
-          <p>{user.name}</p>
-        </Link>
-        <FriendStatusButton
-          setNeedsUpdate={setNeedsUpdate}
-          currentUser={currentUser}
-          user={user}
-        />
-      </div>
-    );
-  });
+  return (
+    <UserFeed
+      users={users}
+      setNeedsUpdate={setNeedsUpdate}
+      currentUser={currentUser}
+    />
+  );
 }
 
 export default Users;

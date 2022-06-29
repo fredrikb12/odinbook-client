@@ -25,7 +25,7 @@ function LoginForm({
         onChange={handleChange}
         name="password"
       />
-      <StyledLoginButton onClick={handleSubmit} style={{ maxWidth: "150px" }}>
+      <StyledLoginButton onClick={handleSubmit}>
         Sign In
       </StyledLoginButton>
     </StyledLoginForm>
