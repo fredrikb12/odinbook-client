@@ -30,8 +30,7 @@ function Profile() {
     }
   }, [userId, needsUpdate]);
 
-  if (loading) return <p>Loading profile...</p>;
-  else {
+  if (!loading)
     return (
       <PostFeed>
         <div
@@ -54,7 +53,6 @@ function Profile() {
         <Posts setNeedsUpdate={setNeedsUpdate} posts={profile.posts || []} />
       </PostFeed>
     );
-  }
 }
 
 export default Profile;
