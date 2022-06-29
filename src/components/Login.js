@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../useAuth";
+import LoginButtons from "./LoginButtons";
 import LoginForm from "./LoginForm";
+import { StyledLoginPage } from "./styled/LoginPage.styled";
 
 function Login() {
   const { login, user } = useAuth();
@@ -55,23 +57,21 @@ function Login() {
   }
 
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <a href="http://localhost:3000/login/facebook">
-          <button>Sign in with Facebook</button>
-        </a>
-        <button onClick={handleGuestLogin} style={{ maxWidth: "150px" }}>
-          Sign in as Guest
-        </button>
-      </div>
-      <p style={{ color: "white", margin: "50px" }}>OR</p>
+    <StyledLoginPage>
+      <LoginButtons handleGuestLogin={handleGuestLogin} />
       <LoginForm
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         handleGuestLogin={handleGuestLogin}
         formData={formData}
+        style={{
+          borderLeft: "5px solid white",
+          borderRadius: "6px",
+          paddingLeft: "20px",
+          flex: 1,
+        }}
       />
-    </div>
+    </StyledLoginPage>
   );
 }
 

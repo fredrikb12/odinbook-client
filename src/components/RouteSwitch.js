@@ -14,6 +14,7 @@ function RouteSwitch() {
     main: "#18191A",
     postBg: "#242526",
     primaryText: "#E4E6EB",
+    loginBorderRadius: "20px",
   };
   return (
     <BrowserRouter>

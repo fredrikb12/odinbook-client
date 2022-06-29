@@ -1,47 +1,33 @@
-function LoginForm({ handleChange, handleSubmit, handleGuestLogin, formData }) {
+import { StyledLoginForm } from "./styled/LoginForm.styled";
+import TextInput from "./TextInput";
+
+function LoginForm({
+  handleChange,
+  handleSubmit,
+  handleGuestLogin,
+  formData,
+  style,
+}) {
   return (
-    <form style={{ color: "white", display: "flex", flexDirection: "column" }}>
-      <label>
-        Name:
-        <input
-          type="text"
-          value={formData.name}
-          onChange={handleChange}
-          name="name"
-        />
-      </label>
-      <label>
-        Email:
-        <input
-          type="email"
-          value={formData.username}
-          onChange={handleChange}
-          name="username"
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
-          value={formData.password}
-          onChange={handleChange}
-          name="password"
-        />
-      </label>
-      <label>
-        Confirm password:
-        <input
-          type="password"
-          value={formData.password_confirm}
-          onChange={handleChange}
-          name="password_confirm"
-        />
-      </label>
+    <StyledLoginForm>
+      <label htmlFor="username">Email:</label>
+      <TextInput
+        type="email"
+        value={formData.username}
+        onChange={handleChange}
+        name="username"
+      />
+      <label htmlFor="password">Password:</label>{" "}
+      <TextInput
+        type="password"
+        value={formData.password}
+        onChange={handleChange}
+        name="password"
+      />
       <button onClick={handleSubmit} style={{ maxWidth: "150px" }}>
         Sign In
       </button>
-      
-    </form>
+    </StyledLoginForm>
   );
 }
 export default LoginForm;
