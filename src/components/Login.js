@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../useAuth";
 import LoginButtons from "./LoginButtons";
 import LoginForm from "./LoginForm";
+import Register from "./Register";
 import { StyledLoginPage } from "./styled/LoginPage.styled";
 
 function Login() {
   const { login, user } = useAuth();
+  const [isRegistering, setIsRegistering] = useState(false);
   const [formData, setFormData] = useState({
     password: "",
     password_confirm: "",
@@ -55,24 +57,30 @@ function Login() {
     });
     login();
   }
-
-  return (
-    <StyledLoginPage>
-      <LoginButtons handleGuestLogin={handleGuestLogin} />
-      <LoginForm
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        handleGuestLogin={handleGuestLogin}
-        formData={formData}
-        style={{
-          borderLeft: "5px solid white",
-          borderRadius: "6px",
-          paddingLeft: "20px",
-          flex: 1,
-        }}
-      />
-    </StyledLoginPage>
-  );
+  if (isRegistering) {
+    return <Register />;
+  } else {
+    return (
+      <StyledLoginPage>
+        <LoginButtons
+          setIsRegistering={setIsRegistering}
+          handleGuestLogin={handleGuestLogin}
+        />
+        <LoginForm
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          handleGuestLogin={handleGuestLogin}
+          formData={formData}
+          style={{
+            borderLeft: "5px solid white",
+            borderRadius: "6px",
+            paddingLeft: "20px",
+            flex: 1,
+          }}
+        />
+      </StyledLoginPage>
+    );
+  }
 }
 
 export default Login;
