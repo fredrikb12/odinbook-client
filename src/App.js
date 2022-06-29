@@ -4,6 +4,7 @@ import Logout from "./components/Logout";
 import authAPI from "./authHelpers";
 import useAuth from "./useAuth";
 import Navbar from "./components/Navbar";
+import Button from "./components/Button";
 
 function App() {
   const [hasAttemptedLogin, setHasAttemptedLogin] = useState(false);
@@ -33,7 +34,20 @@ function App() {
           justifyContent: "center",
         }}
       >
-        {location.pathname !== "/login" && <Link to="/login">Log In</Link>}
+        {location.pathname !== "/login" && (
+          <Link to="/login">
+            <Button
+              style={{
+                position: "absolute",
+                top: 20,
+                left: 20,
+                padding: "8px 16px",
+              }}
+            >
+              Go to login page
+            </Button>
+          </Link>
+        )}
         <Outlet />
       </div>
     );
