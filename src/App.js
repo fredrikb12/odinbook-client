@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link, Outlet } from "react-router-dom";
+import { useNavigate, Link, Outlet, useLocation } from "react-router-dom";
 import Logout from "./components/Logout";
 import authAPI from "./authHelpers";
 import useAuth from "./useAuth";
@@ -9,6 +9,7 @@ function App() {
   const [hasAttemptedLogin, setHasAttemptedLogin] = useState(false);
   const { user, login } = useAuth();
   const nav = useNavigate();
+  const location = useLocation();
   useEffect(() => {
     async function attemptLogin() {
       if (hasAttemptedLogin) return;
@@ -24,8 +25,15 @@ function App() {
 
   if (!user) {
     return (
-      <div>
-        <Link to="/login">Log In</Link>
+      <div
+        style={{
+          display: "flex",
+          minHeight: "100vh",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {location.pathname !== "/login" && <Link to="/login">Log In</Link>}
         <Outlet />
       </div>
     );
