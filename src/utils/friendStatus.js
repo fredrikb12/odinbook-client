@@ -1,5 +1,8 @@
 function friendStatus(user, currentUser) {
+  console.log("User:", user);
+  console.log("currentUser:", currentUser);
   if (user._id === currentUser) {
+    console.log("user id === currentUser");
     return [null, null];
   }
   const receivedPendingReq = user.requests.find(
@@ -7,6 +10,7 @@ function friendStatus(user, currentUser) {
       req.receiver === currentUser && req.sender === user._id && !req.accepted
   );
   if (receivedPendingReq) {
+    console.log("pending incoming req");
     return [receivedPendingReq, "accept"];
   }
   const pendingReq = user.requests.find(
@@ -14,9 +18,14 @@ function friendStatus(user, currentUser) {
       req.sender === currentUser && user._id !== currentUser && !req.accepted
   );
   if (pendingReq) {
+    console.log(pendingReq);
+    console.log("pending outgoing req");
     return [pendingReq, "cancel"];
   }
-  if (user.friends.includes(currentUser)) {
+  if (
+    user.friends.includes(currentUser) ||
+    user.friends.find((friend) => friend._id === currentUser)
+  ) {
     return [null, "remove"];
   }
   return "send";

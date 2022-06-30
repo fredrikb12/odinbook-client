@@ -9,7 +9,7 @@ function Users() {
   const [users, setUsers] = useState([]);
   const [needsUpdate, setNeedsUpdate] = useState(true);
 
-  const currentUser = useAuth().user;
+  const { user } = useAuth();
 
   useEffect(() => {
     async function getUsers() {
@@ -37,7 +37,7 @@ function Users() {
     <UserFeed
       users={users}
       setNeedsUpdate={setNeedsUpdate}
-      currentUser={currentUser}
+      currentUser={user}
     />
   );
 }

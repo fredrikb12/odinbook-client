@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import useAuth from "../useAuth";
+import FriendStatusButton from "./FriendStatusButton/FriendStatusButton";
 import PostFeed from "./PostFeed";
 import Posts from "./Posts";
 import ProfileImage from "./ProfileImage";
@@ -9,6 +11,7 @@ function Profile() {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const [needsUpdate, setNeedsUpdate] = useState(true);
+  const { user } = useAuth();
   useEffect(() => {
     async function fetchProfile() {
       try {
@@ -48,6 +51,13 @@ function Profile() {
           >
             <p>{profile?.name}</p>
             <p>Friends: {profile.friends.length}</p>
+          </div>
+          <div>
+            <FriendStatusButton
+              user={profile}
+              currentUser={user}
+              setNeedsUpdate={setNeedsUpdate}
+            />
           </div>
         </div>
         <Posts setNeedsUpdate={setNeedsUpdate} posts={profile.posts || []} />

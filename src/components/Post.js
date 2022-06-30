@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../useAuth";
 import { postManager } from "../utils/postManager";
@@ -8,6 +9,7 @@ import { NoUnderlineLink } from "./styled/Links.styled";
 import { StyledPost } from "./styled/Post.styled";
 
 function Post({ post, setNeedsUpdate }) {
+  const [commentText, setCommentText] = useState("");
   const { user } = useAuth();
 
   async function handleClick() {
