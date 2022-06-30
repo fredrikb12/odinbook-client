@@ -48,4 +48,18 @@ export const postManager = {
     const data = await response.json();
     console.log(data);
   },
+
+  submitComment: async (postId, commentText) => {
+    const response = await fetch("http://localhost:3000/comments", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify({ postId, text: commentText }),
+    });
+    const data = await response.json();
+    console.log(data);
+  },
 };
