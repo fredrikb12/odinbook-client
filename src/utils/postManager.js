@@ -20,4 +20,18 @@ export const postManager = {
       body: JSON.stringify({ text }),
     });
   },
+
+  likePost: async (postId) => {
+    const response = await fetch("http://localhost:3000/likes", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify({ postId }),
+    });
+    const data = await response.json();
+    console.log(data);
+  },
 };

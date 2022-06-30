@@ -30,12 +30,12 @@ function Post({ post, setNeedsUpdate }) {
       </div>
       <p>{post.text}</p>
       {post.user._id === user && (
-        <StyledDeleteButton
-          onClick={handleClick}
-        >
-          Delete
-        </StyledDeleteButton>
+        <StyledDeleteButton onClick={handleClick}>Delete</StyledDeleteButton>
       )}
+      <div style={{ display: "flex", gap: "10px" }}>
+        <Button onClick={() => postManager.likePost(post._id)}>Like </Button>
+        <span>{post.likes.length}</span>
+      </div>
     </StyledPost>
   );
 }
