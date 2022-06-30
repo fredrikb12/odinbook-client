@@ -6,6 +6,7 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px 3px;
+  transition: 0.5s; 
 
   &:hover {
     cursor: pointer;

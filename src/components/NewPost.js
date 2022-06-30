@@ -2,6 +2,7 @@ import { useState } from "react";
 import useAuth from "../useAuth";
 import { postManager } from "../utils/postManager";
 import Button from "./Button";
+import GenericButton from "./GenericButton";
 import { StyledNewPost } from "./styled/NewPost.styled";
 
 function NewPost({ setNeedsUpdate }) {
@@ -21,9 +22,9 @@ function NewPost({ setNeedsUpdate }) {
   return (
     <StyledNewPost style={{ gap: "10px" }}>
       <textarea onChange={handleChange} value={text} />
-      <Button type="submit" onClick={handleClick}>
+      <GenericButton type="submit" onClick={handleClick}>
         Submit
-      </Button>
+      </GenericButton>
     </StyledNewPost>
   );
 }

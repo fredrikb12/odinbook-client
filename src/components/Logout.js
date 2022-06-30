@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../useAuth";
 import Button from "./Button";
+import GenericButton from "./GenericButton";
 
 function Logout({}) {
   const nav = useNavigate();
@@ -10,7 +11,7 @@ function Logout({}) {
     nav("/login");
   }
 
-  return <Button onClick={handleClick}>Sign Out</Button>;
+  return <GenericButton onClick={handleClick}>Sign Out</GenericButton>;
 }
 
 export default Logout;

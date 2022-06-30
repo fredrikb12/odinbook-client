@@ -5,6 +5,7 @@ import { postManager } from "../utils/postManager";
 import Button from "./Button";
 import Comments from "./Comments";
 import CommentTrigger from "./CommentTrigger";
+import GenericButton from "./GenericButton";
 import ProfileImage from "./ProfileImage";
 import { StyledDeleteButton } from "./styled/Button.styled";
 import { NoUnderlineLink } from "./styled/Links.styled";
@@ -72,10 +73,10 @@ function Post({ post, setNeedsUpdate }) {
         )}
         {post.likes.find(
           (like) => like.user === user || like.user._id === user
-        ) && <Button onClick={handleUnlikeClick}>Unlike</Button>}
+        ) && <GenericButton onClick={handleUnlikeClick}>Unlike</GenericButton>}
         {!post.likes.find(
           (like) => like.user === user || like.user._id === user
-        ) && <Button onClick={handleLikeClick}>Like </Button>}
+        ) && <GenericButton onClick={handleLikeClick}>Like </GenericButton>}
 
         <span>{post.likes.length}</span>
         <CommentTrigger
@@ -105,12 +106,12 @@ function Post({ post, setNeedsUpdate }) {
             onChange={(e) => setCommentText(e.target.value)}
           />
         </div>
-        <Button
+        <GenericButton
           style={{ padding: "6px 12px", fontSize: "1.05rem" }}
           onClick={handleComment}
         >
           Comment
-        </Button>
+        </GenericButton>
       </div>
     </StyledPost>
   );
