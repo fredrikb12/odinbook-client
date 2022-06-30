@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/odinbook-client/static/js/main.8ff5a97b.js",
+    "index.html": "/odinbook-client/index.html",
+    "static/media/hamburger-menu.svg": "/odinbook-client/static/media/hamburger-menu.eba974e6af1ddde2f10604db8b3a7bc3.svg",
+    "main.8ff5a97b.js.map": "/odinbook-client/static/js/main.8ff5a97b.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.8ff5a97b.js"
+  ]
+}
