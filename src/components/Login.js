@@ -27,7 +27,7 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:3000/auth/login", {
+    const response = await fetch("https://calm-reef-09249.herokuapp.com/auth/login", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -43,7 +43,7 @@ function Login() {
   }
 
   async function handleGuestLogin() {
-    const response = await fetch("http://localhost:3000/auth/login", {
+    const response = await fetch("https://calm-reef-09249.herokuapp.com/auth/login", {
       headers: {
         "Content-Type": "application/json",
       },
