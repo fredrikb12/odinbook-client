@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../useAuth";
 import { postManager } from "../utils/postManager";
 import Button from "./Button";
+import Comments from "./Comments";
 import ProfileImage from "./ProfileImage";
 import { StyledDeleteButton } from "./styled/Button.styled";
 import { NoUnderlineLink } from "./styled/Links.styled";
@@ -56,6 +57,9 @@ function Post({ post, setNeedsUpdate }) {
           alignItems: "center",
           gap: "10px",
           marginTop: "15px",
+          borderTop: "1px solid rgba(255,255,255, 0.35)",
+          borderBottom: "1px solid rgba(255,255,255, 0.35)",
+          padding: "10px 0",
         }}
       >
         {post.user._id === user && (
@@ -79,24 +83,31 @@ function Post({ post, setNeedsUpdate }) {
       </div>
       {displayComments && (
         <div>
-          {post.comments.map((comment) => {
-            return (
-              <div key={comment._id}>
-                <p>{comment.user.name}</p>
-                <p>{comment.text}</p>
-              </div>
-            );
-          })}
+          <Comments comments={post.comments}/>
         </div>
       )}
-      <div style={{ display: "flex" }}>
-        <div style={{ marginBottom: 0, gap: "10px", padding: "10px" }}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ marginBottom: 0, gap: "10px", padding: "10px 0" }}>
           <TextInput
+            style={{
+              width: "100%",
+              backgroundColor: "#424345",
+              color: "#F1F1F1",
+              border: "none",
+              borderRadius: "6px",
+              padding: "9px",
+              fontSize: "1.05rem",
+            }}
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
           />
         </div>
-        <Button onClick={handleComment}>Comment</Button>
+        <Button
+          style={{ padding: "6px 12px", fontSize: "1.05rem" }}
+          onClick={handleComment}
+        >
+          Comment
+        </Button>
       </div>
     </StyledPost>
   );

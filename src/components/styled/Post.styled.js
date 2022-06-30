@@ -9,7 +9,7 @@ export const StyledPost = styled.article`
   color: ${({ theme }) => theme.primaryText};
   font-size: 1rem;
 
-  & > div {
+  & > div:first-child {
     display: flex;
     align-items: center;
     gap: 30px;
