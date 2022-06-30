@@ -5,6 +5,7 @@ import authAPI from "./authHelpers";
 import useAuth from "./useAuth";
 import Navbar from "./components/Navbar";
 import Button from "./components/Button";
+import MobileNavbar from "./components/MobileNavbar";
 
 function App() {
   const [hasAttemptedLogin, setHasAttemptedLogin] = useState(false);
@@ -55,6 +56,7 @@ function App() {
     return (
       <div className="App">
         <Navbar />
+        <MobileNavbar />
         <Outlet />
       </div>
     );
