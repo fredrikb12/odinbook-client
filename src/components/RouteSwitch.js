@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import App from "../App";
 import useAuth, { AuthProvider } from "../useAuth";
@@ -18,7 +18,7 @@ function RouteSwitch() {
     loginBorderRadius: "20px",
   };
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ThemeProvider theme={theme}>
         <AuthProvider>
           <GlobalStyle />
@@ -55,7 +55,7 @@ function RouteSwitch() {
           </Routes>
         </AuthProvider>
       </ThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

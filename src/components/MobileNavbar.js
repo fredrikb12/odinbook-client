@@ -49,6 +49,9 @@ function MobileNavbar() {
         style={{
           backgroundColor: "transparent",
           border: "none",
+          position: "absolute",
+          top: 0,
+          left: 0,
         }}
       >
         <img

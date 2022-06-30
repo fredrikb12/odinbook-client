@@ -35,33 +35,35 @@ function Profile() {
 
   if (!loading)
     return (
-      <PostFeed>
-        <div
-          style={{
-            display: "flex",
-            gap: "20px",
-            backgroundColor: "#242526",
-            padding: "20px 30px",
-            alignItems: "center",
-          }}
-        >
-          <ProfileImage src={profile.picture} alt={profile.name} />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <PostFeed>
           <div
-            style={{ display: "flex", flexDirection: "column", gap: "15px" }}
+            style={{
+              display: "flex",
+              gap: "20px",
+              backgroundColor: "#242526",
+              padding: "20px 30px",
+              alignItems: "center",
+            }}
           >
-            <p>{profile?.name}</p>
-            <p>Friends: {profile.friends.length}</p>
+            <ProfileImage src={profile.picture} alt={profile.name} />
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "15px" }}
+            >
+              <p>{profile?.name}</p>
+              <p>Friends: {profile.friends.length}</p>
+            </div>
+            <div>
+              <FriendStatusButton
+                user={profile}
+                currentUser={user}
+                setNeedsUpdate={setNeedsUpdate}
+              />
+            </div>
           </div>
-          <div>
-            <FriendStatusButton
-              user={profile}
-              currentUser={user}
-              setNeedsUpdate={setNeedsUpdate}
-            />
-          </div>
-        </div>
-        <Posts setNeedsUpdate={setNeedsUpdate} posts={profile.posts || []} />
-      </PostFeed>
+          <Posts setNeedsUpdate={setNeedsUpdate} posts={profile.posts || []} />
+        </PostFeed>
+      </div>
     );
 }
 

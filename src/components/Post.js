@@ -103,6 +103,7 @@ function Post({ post, setNeedsUpdate }) {
               fontSize: "1.05rem",
             }}
             value={commentText}
+            placeholder={"Write a comment!"}
             onChange={(e) => setCommentText(e.target.value)}
           />
         </div>

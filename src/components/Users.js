@@ -34,11 +34,13 @@ function Users() {
   }, [setUsers, needsUpdate]);
 
   return (
-    <UserFeed
-      users={users}
-      setNeedsUpdate={setNeedsUpdate}
-      currentUser={user}
-    />
+    <div>
+      <UserFeed
+        users={users}
+        setNeedsUpdate={setNeedsUpdate}
+        currentUser={user}
+      />
+    </div>
   );
 }
 
