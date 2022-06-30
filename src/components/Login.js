@@ -27,15 +27,18 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("https://calm-reef-09249.herokuapp.com/auth/login", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      "https://calm-reef-09249.herokuapp.com/auth/login",
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        method: "POST",
+        mode: "cors",
+        body: JSON.stringify(formData),
+      }
+    );
 
     const data = await response.json();
     console.log(data);
@@ -43,19 +46,26 @@ function Login() {
   }
 
   async function handleGuestLogin() {
-    const response = await fetch("https://calm-reef-09249.herokuapp.com/auth/login", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify({
-        username: "test_user@gmail.com",
-        password: "testpassword",
-      }),
-    });
-    login();
+    try {
+      const response = await fetch(
+        "https://calm-reef-09249.herokuapp.com/auth/login",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          method: "POST",
+          mode: "cors",
+          body: JSON.stringify({
+            username: "test_user@gmail.com",
+            password: "testpassword",
+          }),
+        }
+      );
+      login();
+    } catch (e) {
+      console.log(e);
+    }
   }
   if (isRegistering) {
     return <Register />;
