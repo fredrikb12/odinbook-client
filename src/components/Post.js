@@ -15,6 +15,16 @@ function Post({ post, setNeedsUpdate }) {
     setNeedsUpdate(true);
   }
 
+  async function handleLikeClick() {
+    await postManager.likePost(post._id);
+    setNeedsUpdate(true);
+  }
+
+  async function handleUnlikeClick() {
+    await postManager.unlikePost(post._id);
+    setNeedsUpdate(true);
+  }
+
   return (
     <StyledPost style={{ position: "relative" }}>
       <div>
@@ -29,11 +39,25 @@ function Post({ post, setNeedsUpdate }) {
         </div>
       </div>
       <p>{post.text}</p>
-      {post.user._id === user && (
-        <StyledDeleteButton onClick={handleClick}>Delete</StyledDeleteButton>
-      )}
-      <div style={{ display: "flex", gap: "10px" }}>
-        <Button onClick={() => postManager.likePost(post._id)}>Like </Button>
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          marginTop: "15px",
+        }}
+      >
+        {post.user._id === user && (
+          <StyledDeleteButton onClick={handleClick}>Delete</StyledDeleteButton>
+        )}
+        {post.likes.find(
+          (like) => like.user === user || like.user._id === user
+        ) && <Button onClick={handleUnlikeClick}>Unlike</Button>}
+        {!post.likes.find(
+          (like) => like.user === user || like.user._id === user
+        ) && <Button onClick={handleLikeClick}>Like </Button>}
+
         <span>{post.likes.length}</span>
       </div>
     </StyledPost>

@@ -14,7 +14,6 @@ export const StyledButton = styled.button`
 
 export const StyledDeleteButton = styled(StyledButton)`
   background-color: #ff486b;
-  margin-top: 20px;
 
   &:hover {
     background-color: #c90f34;
