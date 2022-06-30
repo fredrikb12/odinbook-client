@@ -4,6 +4,7 @@ import useAuth from "../useAuth";
 import { postManager } from "../utils/postManager";
 import Button from "./Button";
 import Comments from "./Comments";
+import CommentTrigger from "./CommentTrigger";
 import ProfileImage from "./ProfileImage";
 import { StyledDeleteButton } from "./styled/Button.styled";
 import { NoUnderlineLink } from "./styled/Links.styled";
@@ -34,6 +35,10 @@ function Post({ post, setNeedsUpdate }) {
     await postManager.submitComment(post._id, commentText);
     setNeedsUpdate(true);
     setCommentText("");
+  }
+
+  function toggleCommentDisplay() {
+    setDisplayComments((prev) => !prev);
   }
 
   return (
@@ -73,17 +78,15 @@ function Post({ post, setNeedsUpdate }) {
         ) && <Button onClick={handleLikeClick}>Like </Button>}
 
         <span>{post.likes.length}</span>
-        <p onClick={() => setDisplayComments(true)}>
-          {post.comments.length === 0
-            ? null
-            : post.comments.length === 1
-            ? "1 Comment"
-            : post.comments.length + "Comments"}
-        </p>
+        <CommentTrigger
+          isDisplaying={displayComments}
+          length={post.comments.length}
+          toggleDisplay={toggleCommentDisplay}
+        />
       </div>
       {displayComments && (
         <div>
-          <Comments comments={post.comments}/>
+          <Comments comments={post.comments} />
         </div>
       )}
       <div style={{ display: "flex", flexDirection: "column" }}>
