@@ -15,19 +15,19 @@ function MobileNavbar() {
   const navRef = useRef();
 
   useEffect(() => {
+    function handleClickEvent(e) {
+      if (isDisplaying === false) return;
+      if (e.target === element.current || e.currentTarget === element.current)
+        return;
+      if (e.target === navRef.current || e.currentTarget === navRef.current)
+        return;
+      setIsDisplaying(false);
+    }
+
     window.addEventListener("click", handleClickEvent);
 
     return () => window.removeEventListener("click", handleClickEvent);
-  }, []);
-
-  function handleClickEvent(e) {
-    if (setIsDisplaying === false) return;
-    if (e.target === element.current || e.currentTarget === element.current)
-      return;
-    if (e.target === navRef.current || e.currentTarget === navRef.current)
-      return;
-    setIsDisplaying(false);
-  }
+  }, [isDisplaying]);
 
   return (
     <StyledMobileHeader>
@@ -44,13 +44,21 @@ function MobileNavbar() {
           backgroundColor: "rgba(0,0,0,0.3)",
         }}
       ></div>
-      <img
-        ref={element}
-        style={{ width: "40px", marginBottom: "20px" }}
+      <button
         onClick={() => setIsDisplaying(true)}
-        src={hamburgerMenu}
-        alt="menu"
-      />
+        style={{
+          backgroundColor: "transparent",
+          border: "none",
+        }}
+      >
+        <img
+          ref={element}
+          style={{ width: "40px" }}
+          src={hamburgerMenu}
+          alt="menu"
+        />
+      </button>
+
       <StyledMobileNav
         ref={navRef}
         style={{
