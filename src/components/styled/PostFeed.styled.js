@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledPostFeed = styled.main`
-  margin: 20px auto;
+  margin: 40px auto;
   width: clamp(300px, 50vw, 1200px);
   display: flex;
   flex-direction: column;
