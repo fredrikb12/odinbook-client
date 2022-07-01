@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/odinbook-client/static/js/main.32116bb8.js",
-    "index.html": "/odinbook-client/index.html",
-    "static/media/hamburger-menu.svg": "/odinbook-client/static/media/hamburger-menu.eba974e6af1ddde2f10604db8b3a7bc3.svg",
-    "main.32116bb8.js.map": "/odinbook-client/static/js/main.32116bb8.js.map"
+    "main.js": "/static/js/main.cefa00b9.js",
+    "index.html": "/index.html",
+    "static/media/hamburger-menu.svg": "/static/media/hamburger-menu.eba974e6af1ddde2f10604db8b3a7bc3.svg",
+    "main.cefa00b9.js.map": "/static/js/main.cefa00b9.js.map"
   },
   "entrypoints": [
-    "static/js/main.32116bb8.js"
+    "static/js/main.cefa00b9.js"
   ]
 }
