@@ -6,7 +6,7 @@ function IndexPosts({needsUpdate, setNeedsUpdate}) {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const data = await fetch("https://calm-reef-09249.herokuapp.com/posts/", {
+        const data = await fetch("http://localhost:3000/posts/", {
           credentials: "include",
           mode: "cors",
           method: "GET",

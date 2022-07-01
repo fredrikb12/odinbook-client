@@ -10,7 +10,7 @@ function LoginButtons({ handleGuestLogin, setIsRegistering }) {
           Create Account
         </StyledLoginButton>
       </Link>
-      <a style={{}} href="https://calm-reef-09249.herokuapp.com/login/facebook">
+      <a style={{}} href="http://localhost:3000/login/facebook">
         <StyledLoginButton>Sign in with Facebook</StyledLoginButton>
       </a>
       <StyledLoginButton onClick={handleGuestLogin}>
