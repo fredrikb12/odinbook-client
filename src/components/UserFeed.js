@@ -9,14 +9,16 @@ function UserFeed({ users, setNeedsUpdate, currentUser }) {
     <StyledUserFeed>
       {users.map((user) => {
         return (
-          <div key={user._id}>
-            <ProfileImage src={user.picture} alt={user.name} />
-            <NoUnderlineLink
-              style={{ color: "white" }}
-              to={`/users/${user._id}`}
-            >
-              <p>{user.name}</p>
-            </NoUnderlineLink>
+          <div style={{ justifyContent: "space-between" }} key={user._id}>
+            <div>
+              <ProfileImage src={user.picture} alt={user.name} />
+              <NoUnderlineLink
+                style={{ color: "white" }}
+                to={`/users/${user._id}`}
+              >
+                <p>{user.name}</p>
+              </NoUnderlineLink>
+            </div>
             <FriendStatusButton
               setNeedsUpdate={setNeedsUpdate}
               currentUser={currentUser}

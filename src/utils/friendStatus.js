@@ -34,7 +34,7 @@ function friendStatus(user, currentUser) {
 const friendActions = {
   handleRequest: async (requestId, userId, action) => {
     const response = await fetch(
-      `http://localhost:3000/friendrequests/${requestId}`,
+      `https://conservative-mountie-67830.herokuapp.com/friendrequests/${requestId}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const friendActions = {
   },
   cancelRequest: async (requestId) => {
     const response = await fetch(
-      `http://localhost:3000/friendrequests/${requestId}`,
+      `https://conservative-mountie-67830.herokuapp.com/friendrequests/${requestId}`,
       {
         credentials: "include",
         method: "DELETE",
@@ -66,7 +66,7 @@ const friendActions = {
     const body = JSON.stringify({ receiver: userId });
     console.log(body);
     console.log("user id:", userId);
-    const response = await fetch("http://localhost:3000/friendrequests/", {
+    const response = await fetch("https://conservative-mountie-67830.herokuapp.com/friendrequests/", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -81,7 +81,7 @@ const friendActions = {
   },
   removeFriend: async (userId) => {
     const response = await fetch(
-      `http://localhost:3000/users/${userId}/remove`,
+      `https://conservative-mountie-67830.herokuapp.com/users/${userId}/remove`,
       {
         headers: {
           "Content-Type": "application/json",

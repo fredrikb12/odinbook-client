@@ -31,7 +31,7 @@ function Register() {
   async function handleRegister(e) {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/users", {
+      const res = await fetch("https://conservative-mountie-67830.herokuapp.com/users", {
         headers: {
           "Content-Type": "application/json",
         },

@@ -14,7 +14,7 @@ function Users() {
   useEffect(() => {
     async function getUsers() {
       try {
-        const response = await fetch("http://localhost:3000/users", {
+        const response = await fetch("https://conservative-mountie-67830.herokuapp.com/users", {
           credentials: "include",
           method: "GET",
           mode: "cors",

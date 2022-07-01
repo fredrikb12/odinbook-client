@@ -15,7 +15,7 @@ function Profile() {
   useEffect(() => {
     async function fetchProfile() {
       try {
-        const data = await fetch(`http://localhost:3000/users/${userId}`, {
+        const data = await fetch(`https://conservative-mountie-67830.herokuapp.com/users/${userId}`, {
           credentials: "include",
           method: "GET",
           mode: "cors",

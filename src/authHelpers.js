@@ -1,7 +1,7 @@
 const authAPI = {
   tryLogin: async () => {
     try {
-      const data = await fetch("http://localhost:3000/auth/success", {
+      const data = await fetch("https://conservative-mountie-67830.herokuapp.com/auth/success", {
         credentials: "include",
         method: "GET",
         mode: "cors",
@@ -20,7 +20,7 @@ const authAPI = {
   },
   logout: async () => {
     try {
-      await fetch("http://localhost:3000/auth/logout", {
+      await fetch("https://conservative-mountie-67830.herokuapp.com/auth/logout", {
         credentials: "include",
         method: "GET",
         mode: "cors",
@@ -32,7 +32,7 @@ const authAPI = {
   },
   getCurrentUser: async () => {
     try {
-      const data = await fetch("http://localhost:3000/auth/success", {
+      const data = await fetch("https://conservative-mountie-67830.herokuapp.com/auth/success", {
         credentials: "include",
         method: "GET",
         mode: "cors",
