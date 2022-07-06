@@ -6,7 +6,7 @@ function IndexPosts({needsUpdate, setNeedsUpdate}) {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const data = await fetch("http://api.odinbook.xyz/posts/", {
+        const data = await fetch("https://api.odinbook.xyz/posts/", {
           credentials: "include",
           mode: "cors",
           method: "GET",

@@ -14,7 +14,7 @@ function Users() {
   useEffect(() => {
     async function getUsers() {
       try {
-        const response = await fetch("http://api.odinbook.xyz/users", {
+        const response = await fetch("https://api.odinbook.xyz/users", {
           credentials: "include",
           method: "GET",
           mode: "cors",

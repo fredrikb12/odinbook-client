@@ -15,7 +15,7 @@ function Profile() {
   useEffect(() => {
     async function fetchProfile() {
       try {
-        const data = await fetch(`http://api.odinbook.xyz/users/${userId}`, {
+        const data = await fetch(`https://api.odinbook.xyz/users/${userId}`, {
           credentials: "include",
           method: "GET",
           mode: "cors",

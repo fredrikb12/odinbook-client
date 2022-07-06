@@ -34,7 +34,7 @@ function friendStatus(user, currentUser) {
 const friendActions = {
   handleRequest: async (requestId, userId, action) => {
     const response = await fetch(
-      `http://api.odinbook.xyz/friendrequests/${requestId}`,
+      `https://api.odinbook.xyz/friendrequests/${requestId}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const friendActions = {
   },
   cancelRequest: async (requestId) => {
     const response = await fetch(
-      `http://api.odinbook.xyz/friendrequests/${requestId}`,
+      `https://api.odinbook.xyz/friendrequests/${requestId}`,
       {
         credentials: "include",
         method: "DELETE",
@@ -66,7 +66,7 @@ const friendActions = {
     const body = JSON.stringify({ receiver: userId });
     console.log(body);
     console.log("user id:", userId);
-    const response = await fetch("http://api.odinbook.xyz/friendrequests/", {
+    const response = await fetch("https://api.odinbook.xyz/friendrequests/", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -81,7 +81,7 @@ const friendActions = {
   },
   removeFriend: async (userId) => {
     const response = await fetch(
-      `http://api.odinbook.xyz/users/${userId}/remove`,
+      `https://api.odinbook.xyz/users/${userId}/remove`,
       {
         headers: {
           "Content-Type": "application/json",

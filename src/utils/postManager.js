@@ -1,6 +1,6 @@
 export const postManager = {
   removePost: async (postId) => {
-    const response = await fetch(`http://api.odinbook.xyz/posts/${postId}`, {
+    const response = await fetch(`https://api.odinbook.xyz/posts/${postId}`, {
       credentials: "include",
       method: "DELETE",
       mode: "cors",
@@ -10,7 +10,7 @@ export const postManager = {
     console.log(data);
   },
   submitPost: async (text) => {
-    const response = await fetch("http://api.odinbook.xyz/posts", {
+    const response = await fetch("https://api.odinbook.xyz/posts", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -22,7 +22,7 @@ export const postManager = {
   },
 
   likePost: async (postId) => {
-    const response = await fetch("http://api.odinbook.xyz/likes", {
+    const response = await fetch("https://api.odinbook.xyz/likes", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -36,7 +36,7 @@ export const postManager = {
   },
 
   unlikePost: async (postId) => {
-    const response = await fetch("http://api.odinbook.xyz/likes", {
+    const response = await fetch("https://api.odinbook.xyz/likes", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -50,7 +50,7 @@ export const postManager = {
   },
 
   submitComment: async (postId, commentText) => {
-    const response = await fetch("http://api.odinbook.xyz/comments", {
+    const response = await fetch("https://api.odinbook.xyz/comments", {
       headers: {
         "Content-Type": "application/json",
       },
