@@ -45,7 +45,7 @@ function Post({ post, setNeedsUpdate }) {
   return (
     <StyledPost style={{ position: "relative" }}>
       <div>
-        <ProfileImage src={post.user.picture} />
+        <ProfileImage src={post.user.picture || null} />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <NoUnderlineLink to={`/users/${post.user._id}`}>
             <p>{post.user.name}</p>

@@ -10,7 +10,7 @@ function UserFeed({ users, setNeedsUpdate, currentUser }) {
       {users.map((user) => {
         return (
           <div key={user._id}>
-            <ProfileImage src={user.picture} alt={user.name} />
+            <ProfileImage src={user.picture || null} alt={user.name} />
             <NoUnderlineLink
               style={{ color: "white" }}
               to={`/users/${user._id}`}

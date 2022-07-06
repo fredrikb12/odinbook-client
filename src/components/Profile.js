@@ -15,7 +15,7 @@ function Profile() {
   useEffect(() => {
     async function fetchProfile() {
       try {
-        const data = await fetch(`https://calm-reef-09249.herokuapp.com/users/${userId}`, {
+        const data = await fetch(`http://api.odinbook.xyz/users/${userId}`, {
           credentials: "include",
           method: "GET",
           mode: "cors",
@@ -46,7 +46,7 @@ function Profile() {
               alignItems: "center",
             }}
           >
-            <ProfileImage src={profile.picture} alt={profile.name} />
+            <ProfileImage src={profile.picture || null} alt={profile.name} />
             <div
               style={{ display: "flex", flexDirection: "column", gap: "15px" }}
             >

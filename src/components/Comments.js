@@ -9,7 +9,7 @@ function Comments({ comments }) {
         style={{ display: "flex", alignItems: "center", gap: "20px" }}
       >
         <ProfileImage
-          src={comment.user.picture || null}
+          src={comment.user?.picture || null}
           alt={`${comment.user.name} profile`}
         />
         <div>

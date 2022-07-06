@@ -31,7 +31,7 @@ function Register() {
   async function handleRegister(e) {
     e.preventDefault();
     try {
-      const res = await fetch("https://calm-reef-09249.herokuapp.com/users", {
+      const res = await fetch("http://api.odinbook.xyz/users", {
         headers: {
           "Content-Type": "application/json",
         },

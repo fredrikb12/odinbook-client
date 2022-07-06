@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route, Navigate, HashRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  HashRouter,
+} from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import App from "../App";
 import useAuth, { AuthProvider } from "../useAuth";
@@ -8,6 +14,8 @@ import LoginRedirect from "./LoginRedirect";
 import Profile from "./Profile";
 import Register from "./Register";
 import { GlobalStyle } from "./styled/GlobalStyle";
+import FragmentHandler from "./Test";
+import Test from "./Test";
 import Users from "./Users";
 
 function RouteSwitch() {
@@ -22,6 +30,7 @@ function RouteSwitch() {
       <ThemeProvider theme={theme}>
         <AuthProvider>
           <GlobalStyle />
+          <FragmentHandler />
           <Routes>
             <Route path="/" element={<App />}>
               <Route
@@ -34,7 +43,7 @@ function RouteSwitch() {
               />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/login-redirect" element={<LoginRedirect />} />
+              <Route path="/login-redirect#_=_" element={<LoginRedirect />} />
               <Route
                 path="/users/:userId"
                 element={
@@ -51,6 +60,7 @@ function RouteSwitch() {
                   </AuthRoute>
                 }
               />
+              <Route path="*" element={<LoginRedirect />} />
             </Route>
           </Routes>
         </AuthProvider>

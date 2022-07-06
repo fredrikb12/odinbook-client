@@ -28,7 +28,7 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     const response = await fetch(
-      "https://calm-reef-09249.herokuapp.com/auth/login",
+      "http://api.odinbook.xyz/auth/login",
       {
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function Login() {
   async function handleGuestLogin() {
     try {
       const response = await fetch(
-        "https://calm-reef-09249.herokuapp.com/auth/login",
+        "http://api.odinbook.xyz/auth/login",
         {
           headers: {
             "Content-Type": "application/json",
