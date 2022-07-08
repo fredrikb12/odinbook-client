@@ -1,11 +1,11 @@
 import ProfileImage from "./ProfileImage";
-import { StyledComments } from "./styled/Comments.styled";
+import { StyledComment } from "./styled/Comments.styled";
 import { NoUnderlineLink } from "./styled/Links.styled";
 
 function Comments({ comments }) {
   return comments.map((comment) => {
     return (
-      <StyledComments key={comment._id}>
+      <StyledComment key={comment._id}>
         <ProfileImage
           src={comment.user?.picture || null}
           alt={`${comment.user.name} profile`}
@@ -16,7 +16,7 @@ function Comments({ comments }) {
           </NoUnderlineLink>
           <p>{comment.text}</p>
         </div>
-      </StyledComments>
+      </StyledComment>
     );
   });
 }
