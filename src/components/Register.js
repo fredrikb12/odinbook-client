@@ -31,7 +31,7 @@ function Register() {
   async function handleRegister(e) {
     e.preventDefault();
     try {
-      const res = await fetch("https://api.odinbook.xyz/users", {
+      const res = await fetch("http://localhost:3000/users", {
         headers: {
           "Content-Type": "application/json",
         },
