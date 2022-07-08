@@ -28,7 +28,7 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     const response = await fetch(
-      "http://localhost:3000/auth/login",
+      "https://api.odinbook.xyz/auth/login",
       {
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ function Login() {
   async function handleGuestLogin() {
     try {
       const response = await fetch(
-        "http://localhost:3000/auth/login",
+        "https://api.odinbook.xyz/auth/login",
         {
           headers: {
             "Content-Type": "application/json",
