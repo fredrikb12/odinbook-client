@@ -13,6 +13,7 @@ export const StyledUserFeed = styled(StyledPostFeed)`
   & > div {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
     margin-bottom: 30px;
 
