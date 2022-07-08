@@ -44,14 +44,21 @@ function Profile() {
               backgroundColor: "#242526",
               padding: "20px 30px",
               alignItems: "center",
+              justifyContent: "space-between",
             }}
           >
-            <ProfileImage src={profile.picture || null} alt={profile.name} />
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "15px" }}
-            >
-              <p>{profile?.name}</p>
-              <p>Friends: {profile.friends.length}</p>
+            <div style={{ display: "flex", gap: "20px" }}>
+              <ProfileImage src={profile.picture || null} alt={profile.name} />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "15px",
+                }}
+              >
+                <p>{profile?.name}</p>
+                <p>Friends: {profile.friends.length}</p>
+              </div>
             </div>
             <div>
               <FriendStatusButton
