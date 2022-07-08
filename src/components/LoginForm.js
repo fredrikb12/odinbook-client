@@ -17,6 +17,7 @@ function LoginForm({
         value={formData.username}
         onChange={handleChange}
         name="username"
+        placeholder="your_name@gmail.com"
       />
       <label htmlFor="password">Password:</label>{" "}
       <TextInput
@@ -25,9 +26,7 @@ function LoginForm({
         onChange={handleChange}
         name="password"
       />
-      <StyledLoginButton onClick={handleSubmit}>
-        Sign In
-      </StyledLoginButton>
+      <StyledLoginButton onClick={handleSubmit}>Sign In</StyledLoginButton>
     </StyledLoginForm>
   );
 }

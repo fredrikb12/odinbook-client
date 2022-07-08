@@ -75,6 +75,7 @@ function Register() {
         value={formData.name}
         onChange={handleChange}
         name="name"
+        placeholder="Your Name"
       />
       {getError(errors, "name")}
       <label htmlFor="username">Email:</label>
@@ -83,6 +84,7 @@ function Register() {
         value={formData.username}
         onChange={handleChange}
         name="username"
+        placeholder="your_name@gmail.com"
       />
       {getError(errors, "username")}
       <label htmlFor="password">Password:</label>
