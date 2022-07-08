@@ -9,7 +9,7 @@ function SendButton({ currentUser, user, setNeedsUpdate }) {
     const res = await friendActions.sendRequest(user._id);
     setNeedsUpdate(true);
   }
-  return <GenericButton onClick={handleSend}>Send</GenericButton>;
+  return <GenericButton onClick={handleSend}>Add</GenericButton>;
 }
 
 export default SendButton;
