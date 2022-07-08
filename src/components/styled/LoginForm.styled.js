@@ -5,7 +5,7 @@ export const StyledLoginForm = styled.form`
   display: grid;
   grid-template-columns: 1fr;
   gap: 8px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   border-left: 5px solid white;
   border-right: 5px solid white;
   border-radius: ${({ theme }) => theme.loginBorderRadius};
