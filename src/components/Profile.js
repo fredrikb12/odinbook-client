@@ -61,7 +61,12 @@ function Profile() {
               />
             </div>
           </div>
-          <Posts setNeedsUpdate={setNeedsUpdate} posts={profile.posts || []} />
+          <Posts
+            setNeedsUpdate={setNeedsUpdate}
+            posts={
+              [...profile.posts].sort((a, b) => b.createdAt - a.createdAt) || []
+            }
+          />
         </PostFeed>
       </div>
     );
