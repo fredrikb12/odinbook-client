@@ -61,7 +61,7 @@ function Post({ post, setNeedsUpdate }) {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "10px",
+          gap: "15px",
           marginTop: "15px",
           borderTop: "1px solid rgba(255,255,255, 0.35)",
           borderBottom: "1px solid rgba(255,255,255, 0.35)",
@@ -71,6 +71,11 @@ function Post({ post, setNeedsUpdate }) {
         {post.user._id === user && (
           <StyledDeleteButton onClick={handleClick}>Delete</StyledDeleteButton>
         )}
+
+        <span>
+          {post.likes.length === 1 ? "1 Like" : `${post.likes.length} Likes`}
+        </span>
+
         {post.likes.find(
           (like) => like.user === user || like.user._id === user
         ) && <GenericButton onClick={handleUnlikeClick}>Unlike</GenericButton>}
@@ -78,7 +83,6 @@ function Post({ post, setNeedsUpdate }) {
           (like) => like.user === user || like.user._id === user
         ) && <GenericButton onClick={handleLikeClick}>Like </GenericButton>}
 
-        <span>{post.likes.length}</span>
         <CommentTrigger
           isDisplaying={displayComments}
           length={post.comments.length}
