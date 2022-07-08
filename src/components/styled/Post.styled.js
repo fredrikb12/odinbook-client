@@ -12,7 +12,7 @@ export const StyledPost = styled.article`
   & > div:first-child {
     display: flex;
     align-items: center;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: 15px;
+    margin-bottom: 25px;
   }
 `;
