@@ -23,7 +23,6 @@ function Profile() {
         const { user } = await data.json();
         setProfile(user);
       } catch (e) {
-        console.log(e);
       }
       setLoading(false);
     }

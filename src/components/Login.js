@@ -41,7 +41,6 @@ function Login() {
     );
 
     const data = await response.json();
-    console.log(data);
     login();
   }
 
@@ -64,7 +63,6 @@ function Login() {
       );
       login();
     } catch (e) {
-      console.log(e);
     }
   }
   if (isRegistering) {

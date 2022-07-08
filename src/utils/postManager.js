@@ -5,9 +5,7 @@ export const postManager = {
       method: "DELETE",
       mode: "cors",
     });
-    console.log(response);
     const data = await response.json();
-    console.log(data);
   },
   submitPost: async (text) => {
     const response = await fetch("http://localhost:3000/posts", {
@@ -32,7 +30,6 @@ export const postManager = {
       body: JSON.stringify({ postId }),
     });
     const data = await response.json();
-    console.log(data);
   },
 
   unlikePost: async (postId) => {
@@ -46,7 +43,6 @@ export const postManager = {
       body: JSON.stringify({ postId }),
     });
     const data = await response.json();
-    console.log(data);
   },
 
   submitComment: async (postId, commentText) => {
@@ -60,6 +56,5 @@ export const postManager = {
       body: JSON.stringify({ postId, text: commentText }),
     });
     const data = await response.json();
-    console.log(data);
   },
 };

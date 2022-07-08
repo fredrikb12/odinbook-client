@@ -24,7 +24,6 @@ function Users() {
           setUsers(data.users);
         }
       } catch (e) {
-        console.log(e);
       }
     }
     if (needsUpdate) {

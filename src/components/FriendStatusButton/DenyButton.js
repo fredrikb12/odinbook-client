@@ -4,7 +4,6 @@ import GenericButton from "../GenericButton";
 
 function DenyButton({ req, currentUser, user, setNeedsUpdate }) {
   async function handleDeny() {
-    console.log("Denying...");
     const res = await friendActions.cancelRequest(req._id);
     setNeedsUpdate(true);
   }

@@ -53,7 +53,7 @@ function Register() {
         });
       }
     } catch (e) {
-      console.log(setErrors(() => [e]));
+      setErrors(() => [e]);
     }
   }
 
@@ -61,7 +61,7 @@ function Register() {
     return errors
       .filter((e) => e.param === fieldName)
       .map((e, index) => (
-        <p key={index} style={{ color: "red", marginTop: "-15px"  }}>
+        <p key={index} style={{ color: "red", marginTop: "-15px" }}>
           {e.msg && e.msg}
         </p>
       ));

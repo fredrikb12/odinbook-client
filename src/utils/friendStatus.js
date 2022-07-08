@@ -1,8 +1,5 @@
 function friendStatus(user, currentUser) {
-  console.log("User:", user);
-  console.log("currentUser:", currentUser);
   if (user._id === currentUser) {
-    console.log("user id === currentUser");
     return [null, null];
   }
   const receivedPendingReq = user.requests.find(
@@ -10,7 +7,6 @@ function friendStatus(user, currentUser) {
       req.receiver === currentUser && req.sender === user._id && !req.accepted
   );
   if (receivedPendingReq) {
-    console.log("pending incoming req");
     return [receivedPendingReq, "accept"];
   }
   const pendingReq = user.requests.find(
@@ -18,8 +14,6 @@ function friendStatus(user, currentUser) {
       req.sender === currentUser && user._id !== currentUser && !req.accepted
   );
   if (pendingReq) {
-    console.log(pendingReq);
-    console.log("pending outgoing req");
     return [pendingReq, "cancel"];
   }
   if (
@@ -45,9 +39,7 @@ const friendActions = {
         body: JSON.stringify({ requestAction: action }),
       }
     );
-    console.log(response);
     const data = await response.json();
-    console.log(data);
   },
   cancelRequest: async (requestId) => {
     const response = await fetch(
@@ -58,14 +50,10 @@ const friendActions = {
         mode: "cors",
       }
     );
-    console.log(response);
     const data = await response.json();
-    console.log(data);
   },
   sendRequest: async (userId) => {
     const body = JSON.stringify({ receiver: userId });
-    console.log(body);
-    console.log("user id:", userId);
     const response = await fetch("http://localhost:3000/friendrequests/", {
       headers: {
         "Content-Type": "application/json",
@@ -75,9 +63,7 @@ const friendActions = {
       mode: "cors",
       body: body,
     });
-    console.log(response);
     const data = await response.json();
-    console.log(data);
   },
   removeFriend: async (userId) => {
     const response = await fetch(
@@ -92,9 +78,7 @@ const friendActions = {
         body: JSON.stringify({ userId: userId }),
       }
     );
-    console.log(response);
     const data = await response.json();
-    console.log(data);
   },
 };
 

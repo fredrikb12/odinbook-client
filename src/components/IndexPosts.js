@@ -11,10 +11,8 @@ function IndexPosts({needsUpdate, setNeedsUpdate}) {
           mode: "cors",
           method: "GET",
         });
-        console.log(data);
         if (data.status === 200) {
           const posts = await data.json();
-          console.log(posts);
           setPosts(() => posts.posts);
         }
       } catch (e) {
@@ -26,7 +24,6 @@ function IndexPosts({needsUpdate, setNeedsUpdate}) {
             },
           ];
         });
-        console.log(e);
       }
     }
     if (needsUpdate) {

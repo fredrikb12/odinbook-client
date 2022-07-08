@@ -4,7 +4,6 @@ import GenericButton from "../GenericButton";
 
 function AcceptButton({ req, currentUser, user, setNeedsUpdate }) {
   async function handleAccept() {
-    console.log("accepting...");
     const res = await friendActions.handleRequest(req._id, user, "accepted")
     setNeedsUpdate(true);
   }

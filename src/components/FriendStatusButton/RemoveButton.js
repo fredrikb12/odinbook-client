@@ -4,7 +4,6 @@ import GenericButton from "../GenericButton";
 
 function RemoveButton({ currentUser, user, setNeedsUpdate }) {
   async function handleRemove() {
-    console.log("Removing...");
     const res = await friendActions.removeFriend(user._id);
     setNeedsUpdate(true);
   }
