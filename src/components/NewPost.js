@@ -21,7 +21,11 @@ function NewPost({ setNeedsUpdate }) {
 
   return (
     <StyledNewPost style={{ gap: "10px" }}>
-      <textarea onChange={handleChange} value={text} />
+      <textarea
+        onChange={handleChange}
+        value={text}
+        placeholder="What's on your mind today?"
+      />
       <GenericButton type="submit" onClick={handleClick}>
         Submit
       </GenericButton>
