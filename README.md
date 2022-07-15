@@ -1,2 +1,1 @@
-![demo]
-(../media/odinbook-demo.gif?raw=true)
+![demo](../media/odinbook-demo.gif?raw=true)
