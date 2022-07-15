@@ -1,1 +1,1 @@
-![demo](../media/odinbook-demo.gif?raw=true)
+![demo gif](../media/odinbook-demo.gif?raw=true)
