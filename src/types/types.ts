@@ -4,3 +4,9 @@ export interface User {
   requests: Array<any>;
   posts: Array<any>;
 }
+
+export interface FriendRequest {
+  sender: string;
+  receiver: string;
+  accepted: boolean;
+}

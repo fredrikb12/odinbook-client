@@ -1,18 +1,18 @@
-import { User } from "../types/types";
+import { User, FriendRequest } from "../types/types";
 
-function friendStatus(user: User, currentUser: string) {
+function friendStatus(user: User, currentUser: string): any {
   if (user._id === currentUser) {
     return [null, null];
   }
   const receivedPendingReq = user.requests.find(
-    (req: any) =>
+    (req: FriendRequest) =>
       req.receiver === currentUser && req.sender === user._id && !req.accepted
   );
   if (receivedPendingReq) {
     return [receivedPendingReq, "accept"];
   }
   const pendingReq = user.requests.find(
-    (req) =>
+    (req: FriendRequest) =>
       req.sender === currentUser && user._id !== currentUser && !req.accepted
   );
   if (pendingReq) {
@@ -20,7 +20,7 @@ function friendStatus(user: User, currentUser: string) {
   }
   if (
     user.friends.includes(currentUser) ||
-    user.friends.find((friend) => friend._id === currentUser)
+    user.friends.find((friend: User) => friend._id === currentUser)
   ) {
     return [null, "remove"];
   }
@@ -41,7 +41,7 @@ const friendActions = {
         body: JSON.stringify({ requestAction: action }),
       }
     );
-    const data = await response.json();
+    await response.json();
   },
   cancelRequest: async (requestId: string): Promise<void> => {
     const response = await fetch(
@@ -52,7 +52,7 @@ const friendActions = {
         mode: "cors",
       }
     );
-    const data = await response.json();
+    await response.json();
   },
   sendRequest: async (userId: string): Promise<void> => {
     const body = JSON.stringify({ receiver: userId });
@@ -65,7 +65,7 @@ const friendActions = {
       mode: "cors",
       body: body,
     });
-    const data = await response.json();
+    await response.json();
   },
   removeFriend: async (userId: string): Promise<void> => {
     const response = await fetch(
@@ -80,7 +80,7 @@ const friendActions = {
         body: JSON.stringify({ userId: userId }),
       }
     );
-    const data = await response.json();
+    await response.json();
   },
 };
 

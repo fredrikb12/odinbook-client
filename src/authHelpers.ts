@@ -1,5 +1,5 @@
 const authAPI = {
-  tryLogin: async () => {
+  tryLogin: async (): Promise<string | null | undefined> => {
     try {
       const data = await fetch("https://api.odinbook.xyz/auth/success", {
         credentials: "include",
@@ -18,7 +18,7 @@ const authAPI = {
       return null;
     }
   },
-  logout: async () => {
+  logout: async (): Promise<null> => {
     try {
       await fetch("https://api.odinbook.xyz/auth/logout", {
         credentials: "include",
@@ -30,7 +30,7 @@ const authAPI = {
       throw new Error("Something went wrong trying to log out");
     }
   },
-  getCurrentUser: async () => {
+  getCurrentUser: async (): Promise<null | string> => {
     try {
       const data = await fetch("https://api.odinbook.xyz/auth/success", {
         credentials: "include",

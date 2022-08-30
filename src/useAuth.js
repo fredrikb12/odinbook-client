@@ -17,7 +17,9 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     async function getUser() {
-      const currentUser = await authAPI.getCurrentUser().catch((e) => setError(e));
+      const currentUser = await authAPI
+        .getCurrentUser()
+        .catch((e) => setError(e));
       setUser(currentUser);
       setLoadingInitial(false);
     }

@@ -2,12 +2,25 @@ import ProfileImage from "./ProfileImage";
 import { StyledComment } from "./styled/Comments.styled";
 import { NoUnderlineLink } from "./styled/Links.styled";
 
-function Comments({ comments }) {
-  return comments.map((comment) => {
+interface CommentsInt {
+  comments: Array<Comment>;
+}
+interface Comment {
+  _id: String;
+  user: {
+    picture: string;
+    name: string;
+    _id: string;
+  };
+  text: string;
+}
+
+function Comments({ comments }: CommentsInt) {
+  return comments.map((comment: Comment) => {
     return (
       <StyledComment key={comment._id}>
         <ProfileImage
-          src={comment.user?.picture || null}
+          src={comment.user.picture || null}
           alt={`${comment.user.name} profile`}
         />
         <div>
