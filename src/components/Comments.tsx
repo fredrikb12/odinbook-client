@@ -15,23 +15,27 @@ interface Comment {
   text: string;
 }
 
-function Comments({ comments }: CommentsInt) {
-  return comments.map((comment: Comment) => {
-    return (
-      <StyledComment key={comment._id}>
-        <ProfileImage
-          src={comment.user.picture || null}
-          alt={`${comment.user.name} profile`}
-        />
-        <div>
-          <NoUnderlineLink to={`/users/${comment.user._id}`}>
-            <p>{comment.user.name}</p>
-          </NoUnderlineLink>
-          <p>{comment.text}</p>
-        </div>
-      </StyledComment>
-    );
-  });
+function Comments({ comments }: CommentsInt): JSX.Element {
+  return (
+    <>
+      {comments.map((comment: Comment) => {
+        return (
+          <StyledComment key={comment._id}>
+            <ProfileImage
+              src={comment.user.picture || null}
+              alt={`${comment.user.name} profile`}
+            />
+            <div>
+              <NoUnderlineLink to={`/users/${comment.user._id}`}>
+                <p>{comment.user.name}</p>
+              </NoUnderlineLink>
+              <p>{comment.text}</p>
+            </div>
+          </StyledComment>
+        );
+      })}
+    </>
+  );
 }
 
 export default Comments;

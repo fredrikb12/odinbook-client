@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RegistrationError } from "../types/types";
 import useAuth from "../useAuth";
 import { StyledLoginButton } from "./styled/LoginButton.styled";
 import { StyledRegister } from "./styled/Register.styled";
@@ -12,12 +13,12 @@ function Register() {
     password: "",
     password_confirm: "",
   });
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState<RegistrationError[]>([]);
 
   const { login, user } = useAuth();
   const nav = useNavigate();
 
-  function handleChange(e) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setErrors([]);
     setFormData((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
@@ -28,7 +29,7 @@ function Register() {
     if (user) nav("/");
   }, [user, nav]);
 
-  async function handleRegister(e) {
+  async function handleRegister(e: SubmitEvent): Promise<void> {
     e.preventDefault();
     try {
       const res = await fetch("https://api.odinbook.xyz/users", {
@@ -52,15 +53,15 @@ function Register() {
           password_confirm: "",
         });
       }
-    } catch (e) {
-      setErrors(() => [e]);
+    } catch (e: any) {
+      setErrors([e]);
     }
   }
 
-  function getError(errors, fieldName) {
+  function getError(errors: RegistrationError[], fieldName: string): any[] {
     return errors
-      .filter((e) => e.param === fieldName)
-      .map((e, index) => (
+      .filter((e: RegistrationError) => e.param === fieldName)
+      .map((e: RegistrationError, index: number) => (
         <p key={index} style={{ color: "red", marginTop: "-15px" }}>
           {e.msg && e.msg}
         </p>

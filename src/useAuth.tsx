@@ -2,11 +2,24 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import authAPI from "./authHelpers";
 
-const AuthContext = createContext({});
+interface AuthInterface {
+  login: () => any;
+  user: string | null | void;
+  error: string | null;
+  loading: boolean;
+  logOut: () => any;
+}
+const AuthContext = createContext<AuthInterface>({
+  login: () => null,
+  user: null,
+  error: "",
+  loading: false,
+  logOut: () => null,
+});
 
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+export function AuthProvider({ children }: any) {
+  const [user, setUser] = useState<string | void | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadingInitial, setLoadingInitial] = useState(true);
   const location = useLocation();

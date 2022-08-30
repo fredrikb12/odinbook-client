@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { ChangeEvent, useState } from "react";
+import { IPost } from "../types/types";
 import useAuth from "../useAuth";
 import { postManager } from "../utils/postManager";
-import Button from "./Button";
 import Comments from "./Comments";
 import CommentTrigger from "./CommentTrigger";
 import GenericButton from "./GenericButton";
@@ -12,7 +11,7 @@ import { NoUnderlineLink } from "./styled/Links.styled";
 import { StyledPost } from "./styled/Post.styled";
 import TextInput from "./TextInput";
 
-function Post({ post, setNeedsUpdate }) {
+function Post({ post, setNeedsUpdate }: IPost) {
   const [commentText, setCommentText] = useState("");
   const [displayComments, setDisplayComments] = useState(false);
   const { user } = useAuth();
@@ -45,7 +44,7 @@ function Post({ post, setNeedsUpdate }) {
   return (
     <StyledPost style={{ position: "relative" }}>
       <div>
-        <ProfileImage src={post.user.picture || null} />
+        <ProfileImage src={post.user.picture || null} alt={post.user.name} />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <NoUnderlineLink to={`/users/${post.user._id}`}>
             <p>{post.user.name}</p>
@@ -108,7 +107,9 @@ function Post({ post, setNeedsUpdate }) {
             }}
             value={commentText}
             placeholder={"Write a comment!"}
-            onChange={(e) => setCommentText(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setCommentText(e.target.value)
+            }
           />
         </div>
         <GenericButton
