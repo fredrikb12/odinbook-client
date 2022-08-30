@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { User } from "../types/types";
 import useAuth from "../useAuth";
 import FriendStatusButton from "./FriendStatusButton/FriendStatusButton";
 import PostFeed from "./PostFeed";
@@ -8,7 +9,14 @@ import ProfileImage from "./ProfileImage";
 
 function Profile() {
   const { userId } = useParams();
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState<User>({
+    _id: "",
+    name: "",
+    picture: null,
+    friends: [],
+    requests: [],
+    posts: [],
+  });
   const [loading, setLoading] = useState(true);
   const [needsUpdate, setNeedsUpdate] = useState(true);
   const { user } = useAuth();
@@ -22,8 +30,7 @@ function Profile() {
         });
         const { user } = await data.json();
         setProfile(user);
-      } catch (e) {
-      }
+      } catch (e) {}
       setLoading(false);
     }
     if (needsUpdate) {
@@ -32,7 +39,7 @@ function Profile() {
     }
   }, [userId, needsUpdate]);
 
-  if (!loading)
+  if (!loading) {
     return (
       <div style={{ display: "flex", justifyContent: "center" }}>
         <PostFeed>
@@ -61,6 +68,7 @@ function Profile() {
             </div>
             <div>
               <FriendStatusButton
+                req={{ _id: "" }}
                 user={profile}
                 currentUser={user}
                 setNeedsUpdate={setNeedsUpdate}
@@ -76,6 +84,7 @@ function Profile() {
         </PostFeed>
       </div>
     );
+  } else return null;
 }
 
 export default Profile;

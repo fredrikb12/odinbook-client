@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  HashRouter,
-} from "react-router-dom";
+import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import App from "../App";
 import useAuth, { AuthProvider } from "../useAuth";
@@ -13,9 +7,8 @@ import Login from "./Login";
 import LoginRedirect from "./LoginRedirect";
 import Profile from "./Profile";
 import Register from "./Register";
-import { GlobalStyle } from "./styled/GlobalStyle";
-import FragmentHandler from "./Test";
-import Test from "./Test";
+import { GlobalStyle } from "./styled/GlobalStyle.styled";
+import FragmentHandler from "./FragmentHandler";
 import Users from "./Users";
 import { theme } from "../utils/theme";
 
@@ -64,7 +57,7 @@ function RouteSwitch() {
   );
 }
 
-function AuthRoute({ children }) {
+function AuthRoute({ children }: any) {
   const { user } = useAuth();
   if (!user) return <Navigate to="/login" />;
   else return children;

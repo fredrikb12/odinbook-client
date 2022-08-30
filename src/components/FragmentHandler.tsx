@@ -7,6 +7,7 @@ function FragmentHandler() {
   useEffect(() => {
     if (location.pathname === "_=_") nav("/");
   }, [location.pathname, nav]);
+  return null;
 }
 
 export default FragmentHandler;

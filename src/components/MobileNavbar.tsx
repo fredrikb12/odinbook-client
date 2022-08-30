@@ -11,11 +11,11 @@ import hamburgerMenu from "../images/hamburger-menu.svg";
 function MobileNavbar() {
   const { user } = useAuth();
   const [isDisplaying, setIsDisplaying] = useState(false);
-  const element = useRef();
-  const navRef = useRef();
+  const element = useRef(null);
+  const navRef = useRef(null);
 
   useEffect(() => {
-    function handleClickEvent(e) {
+    function handleClickEvent(e: MouseEvent) {
       if (isDisplaying === false) return;
       if (e.target === element.current || e.currentTarget === element.current)
         return;
