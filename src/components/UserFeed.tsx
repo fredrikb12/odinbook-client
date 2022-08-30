@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom";
+import { User } from "../types/types";
 import FriendStatusButton from "./FriendStatusButton/FriendStatusButton";
 import ProfileImage from "./ProfileImage";
 import { NoUnderlineLink } from "./styled/Links.styled";
 import { StyledUserFeed } from "./styled/UserFeed.styled";
 
-function UserFeed({ users, setNeedsUpdate, currentUser }) {
+interface Props {
+  users: User[];
+  setNeedsUpdate: (value: boolean) => void;
+  currentUser: string | void | null;
+}
+
+function UserFeed({ users, setNeedsUpdate, currentUser }: Props) {
   return (
     <StyledUserFeed>
       {users.map((user) => {
@@ -20,6 +26,7 @@ function UserFeed({ users, setNeedsUpdate, currentUser }) {
               </NoUnderlineLink>
             </div>
             <FriendStatusButton
+              req={{ _id: "" }}
               setNeedsUpdate={setNeedsUpdate}
               currentUser={currentUser}
               user={user}

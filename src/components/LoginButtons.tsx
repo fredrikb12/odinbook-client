@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import { StyledLoginButton } from "./styled/LoginButton.styled";
 import { StyledLoginButtons } from "./styled/LoginButtons.styled";
 
-function LoginButtons({ handleGuestLogin, setIsRegistering }) {
+interface Props {
+  handleGuestLogin: () => void;
+  setIsRegistering: (value: boolean) => void;
+}
+
+function LoginButtons({ handleGuestLogin, setIsRegistering }: Props) {
   return (
     <StyledLoginButtons>
       <Link to="/register">

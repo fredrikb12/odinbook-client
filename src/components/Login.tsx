@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../useAuth";
 import LoginButtons from "./LoginButtons";
@@ -19,26 +19,23 @@ function Login() {
     if (user) nav("/");
   }, [nav, user]);
 
-  function handleChange(e) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setFormData((prevData) => {
       return { ...prevData, [e.target.name]: e.target.value };
     });
   }
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
-    const response = await fetch(
-      "https://api.odinbook.xyz/auth/login",
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        method: "POST",
-        mode: "cors",
-        body: JSON.stringify(formData),
-      }
-    );
+    const response = await fetch("https://api.odinbook.xyz/auth/login", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify(formData),
+    });
 
     const data = await response.json();
     login();
@@ -46,24 +43,20 @@ function Login() {
 
   async function handleGuestLogin() {
     try {
-      const response = await fetch(
-        "https://api.odinbook.xyz/auth/login",
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          method: "POST",
-          mode: "cors",
-          body: JSON.stringify({
-            username: "test_user@gmail.com",
-            password: "testpassword",
-          }),
-        }
-      );
+      const response = await fetch("https://api.odinbook.xyz/auth/login", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        method: "POST",
+        mode: "cors",
+        body: JSON.stringify({
+          username: "test_user@gmail.com",
+          password: "testpassword",
+        }),
+      });
       login();
-    } catch (e) {
-    }
+    } catch (e) {}
   }
   if (isRegistering) {
     return <Register />;
@@ -77,7 +70,6 @@ function Login() {
         <LoginForm
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          handleGuestLogin={handleGuestLogin}
           formData={formData}
           style={{
             borderLeft: "5px solid white",

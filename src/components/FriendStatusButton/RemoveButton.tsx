@@ -1,8 +1,8 @@
+import { IFriendStatusButtonProps } from "../../types/types";
 import { friendActions } from "../../utils/friendStatus";
-import Button from "../Button";
 import GenericButton from "../GenericButton";
 
-function RemoveButton({ currentUser, user, setNeedsUpdate }) {
+function RemoveButton({ user, setNeedsUpdate }: IFriendStatusButtonProps) {
   async function handleRemove() {
     const res = await friendActions.removeFriend(user._id);
     setNeedsUpdate(true);

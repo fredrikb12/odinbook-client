@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import IndexPosts from "./IndexPosts";
 import NewPost from "./NewPost";
 import PostFeed from "./PostFeed";

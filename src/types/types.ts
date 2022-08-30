@@ -21,15 +21,25 @@ export interface RegistrationError {
 }
 
 export interface IPost {
-  post: internalPost;
-  setNeedsUpdate: (value: boolean) => void;
-}
-
-interface internalPost {
   _id: string;
   text: string;
   likes: any[];
   comments: any[];
   user: User;
   createdAt: number;
+}
+
+export interface IFormData {
+  password: string;
+  password_confirm: string;
+  username: string;
+}
+
+export interface IFriendStatusButtonProps {
+  req: {
+    _id: string;
+  };
+  currentUser: string | void | null;
+  user: User;
+  setNeedsUpdate: (value: boolean) => void;
 }

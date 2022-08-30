@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { IFriendStatusButtonProps } from "../../types/types";
 import { friendStatus } from "../../utils/friendStatus";
 import AcceptButton from "./AcceptButton";
 import CancelButton from "./CancelButton";
@@ -6,8 +7,12 @@ import DenyButton from "./DenyButton";
 import RemoveButton from "./RemoveButton";
 import SendButton from "./SendButton";
 
-function FriendStatusButton({ user, currentUser, setNeedsUpdate }) {
-  const [status, setStatus] = useState([null, null]);
+function FriendStatusButton({
+  user,
+  currentUser,
+  setNeedsUpdate,
+}: IFriendStatusButtonProps) {
+  const [status, setStatus] = useState<any[]>([null, null]);
   useEffect(() => {
     setStatus(friendStatus(user, currentUser));
   }, [user, currentUser]);
@@ -42,6 +47,7 @@ function FriendStatusButton({ user, currentUser, setNeedsUpdate }) {
   if (status[1] === "remove")
     return (
       <RemoveButton
+        req={{ _id: "" }}
         setNeedsUpdate={setNeedsUpdate}
         currentUser={currentUser}
         user={user}
@@ -49,6 +55,7 @@ function FriendStatusButton({ user, currentUser, setNeedsUpdate }) {
     );
   return (
     <SendButton
+      req={{ _id: "" }}
       setNeedsUpdate={setNeedsUpdate}
       currentUser={currentUser}
       user={user}

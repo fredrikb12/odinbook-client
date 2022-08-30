@@ -1,8 +1,8 @@
 import { friendActions } from "../../utils/friendStatus";
-import Button from "../Button";
 import GenericButton from "../GenericButton";
+import { IFriendStatusButtonProps } from "../../types/types";
 
-function CancelButton({ req, currentUser, user, setNeedsUpdate }) {
+function CancelButton({ req, setNeedsUpdate }: IFriendStatusButtonProps) {
   async function handleCancel() {
     const res = await friendActions.cancelRequest(req._id);
     setNeedsUpdate(true);

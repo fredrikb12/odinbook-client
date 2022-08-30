@@ -1,18 +1,20 @@
-import { useState } from "react";
-import useAuth from "../useAuth";
+import { ChangeEvent, useState } from "react";
 import { postManager } from "../utils/postManager";
-import Button from "./Button";
 import GenericButton from "./GenericButton";
 import { StyledNewPost } from "./styled/NewPost.styled";
 
-function NewPost({ setNeedsUpdate }) {
+interface Props {
+  setNeedsUpdate: (value: boolean) => void;
+}
+
+function NewPost({ setNeedsUpdate }: Props): JSX.Element {
   const [text, setText] = useState("");
 
-  function handleChange(e) {
+  function handleChange(e: ChangeEvent<HTMLTextAreaElement>): void {
     setText(e.target.value);
   }
 
-  async function handleClick(e) {
+  async function handleClick(e: SubmitEvent): Promise<void> {
     e.preventDefault();
     await postManager.submitPost(text);
     setText("");

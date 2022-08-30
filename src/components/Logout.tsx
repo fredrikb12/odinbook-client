@@ -1,12 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../useAuth";
-import Button from "./Button";
 import GenericButton from "./GenericButton";
 
-function Logout({}) {
+function Logout() {
   const nav = useNavigate();
   const { logOut } = useAuth();
-  async function handleClick() {
+  async function handleClick(): Promise<void> {
     await logOut();
     nav("/login");
   }

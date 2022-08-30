@@ -1,6 +1,6 @@
 import { User, FriendRequest } from "../types/types";
 
-function friendStatus(user: User, currentUser: string): any {
+function friendStatus(user: User, currentUser: string | null | void): any {
   if (user._id === currentUser) {
     return [null, null];
   }
@@ -28,7 +28,7 @@ function friendStatus(user: User, currentUser: string): any {
 }
 
 const friendActions = {
-  handleRequest: async (requestId: string, userId: string, action: string) => {
+  handleRequest: async (requestId: string, action: string) => {
     const response = await fetch(
       `https://api.odinbook.xyz/friendrequests/${requestId}`,
       {

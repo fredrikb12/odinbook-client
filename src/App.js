@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link, Outlet, useLocation } from "react-router-dom";
-import Logout from "./components/Logout";
-import authAPI from "./authHelpers";
 import useAuth from "./useAuth";
 import Navbar from "./components/Navbar";
 import Button from "./components/Button";

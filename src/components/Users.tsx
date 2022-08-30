@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import useAuth from "../useAuth";
-import FriendStatusButton from "./FriendStatusButton/FriendStatusButton";
-import ProfileImage from "./ProfileImage";
 import UserFeed from "./UserFeed";
 
 function Users() {
@@ -23,8 +20,7 @@ function Users() {
           const data = await response.json();
           setUsers(data.users);
         }
-      } catch (e) {
-      }
+      } catch (e) {}
     }
     if (needsUpdate) {
       getUsers();

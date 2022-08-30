@@ -11,7 +11,12 @@ import { NoUnderlineLink } from "./styled/Links.styled";
 import { StyledPost } from "./styled/Post.styled";
 import TextInput from "./TextInput";
 
-function Post({ post, setNeedsUpdate }: IPost) {
+interface Props {
+  post: IPost;
+  setNeedsUpdate: (value: boolean) => void;
+}
+
+function Post({ post, setNeedsUpdate }: Props) {
   const [commentText, setCommentText] = useState("");
   const [displayComments, setDisplayComments] = useState(false);
   const { user } = useAuth();

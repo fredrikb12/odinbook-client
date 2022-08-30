@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../useAuth";
 
-function LoginRedirect({}) {
+function LoginRedirect() {
   const { login, loading, error } = useAuth();
   const nav = useNavigate();
 
