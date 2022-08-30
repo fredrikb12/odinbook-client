@@ -1,6 +1,10 @@
 import { StyledCommentTrigger } from "./styled/CommentTrigger.styled";
-
-function CommentTrigger({ length, toggleDisplay, isDisplaying }) {
+interface Props {
+  length: number;
+  toggleDisplay: () => void;
+  isDisplaying: boolean;
+}
+function CommentTrigger({ length, toggleDisplay, isDisplaying }: Props) {
   if (length === 0) return null;
   return (
     <StyledCommentTrigger onClick={() => toggleDisplay()}>
