@@ -1,9 +1,11 @@
-function friendStatus(user, currentUser) {
+import { User } from "../types/types";
+
+function friendStatus(user: User, currentUser: string) {
   if (user._id === currentUser) {
     return [null, null];
   }
   const receivedPendingReq = user.requests.find(
-    (req) =>
+    (req: any) =>
       req.receiver === currentUser && req.sender === user._id && !req.accepted
   );
   if (receivedPendingReq) {
@@ -26,7 +28,7 @@ function friendStatus(user, currentUser) {
 }
 
 const friendActions = {
-  handleRequest: async (requestId, userId, action) => {
+  handleRequest: async (requestId: string, userId: string, action: string) => {
     const response = await fetch(
       `https://api.odinbook.xyz/friendrequests/${requestId}`,
       {
@@ -41,7 +43,7 @@ const friendActions = {
     );
     const data = await response.json();
   },
-  cancelRequest: async (requestId) => {
+  cancelRequest: async (requestId: string): Promise<void> => {
     const response = await fetch(
       `https://api.odinbook.xyz/friendrequests/${requestId}`,
       {
@@ -52,7 +54,7 @@ const friendActions = {
     );
     const data = await response.json();
   },
-  sendRequest: async (userId) => {
+  sendRequest: async (userId: string): Promise<void> => {
     const body = JSON.stringify({ receiver: userId });
     const response = await fetch("https://api.odinbook.xyz/friendrequests/", {
       headers: {
@@ -65,7 +67,7 @@ const friendActions = {
     });
     const data = await response.json();
   },
-  removeFriend: async (userId) => {
+  removeFriend: async (userId: string): Promise<void> => {
     const response = await fetch(
       `https://api.odinbook.xyz/users/${userId}/remove`,
       {

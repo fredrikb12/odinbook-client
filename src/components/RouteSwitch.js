@@ -17,14 +17,9 @@ import { GlobalStyle } from "./styled/GlobalStyle";
 import FragmentHandler from "./Test";
 import Test from "./Test";
 import Users from "./Users";
+import { theme } from "../utils/theme";
 
 function RouteSwitch() {
-  const theme = {
-    main: "#18191A",
-    postBg: "#242526",
-    primaryText: "#E4E6EB",
-    loginBorderRadius: "20px",
-  };
   return (
     <HashRouter>
       <ThemeProvider theme={theme}>
