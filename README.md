@@ -6,6 +6,8 @@ Final project of the NodeJS path in [The Odin Project](https://www.theodinprojec
 
 You may find project specifications and other details on the [project page](https://www.theodinproject.com/lessons/nodejs-odin-book).
 
+As of August 30th, this project uses TypeScript!
+
 ## Demo
 
 ![Desktop demo gif](../media/odinbook-demo.gif?raw=true) ![Mobile demo gif](../media/odinbook-mobile-demo.gif?raw=true)
